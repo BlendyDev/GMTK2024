@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://bc77s0v03x3cw"]
+[gd_scene load_steps=5 format=3 uid="uid://bc77s0v03x3cw"]
+
+[ext_resource type="Texture2D" uid="uid://cjn7jwejwe5h5" path="res://tmp/protoBG.png" id="1_u2dqq"]
+[ext_resource type="PackedScene" uid="uid://6guy5rxqs3n2" path="res://tmp/player.tscn" id="2_phniv"]
+[ext_resource type="Texture2D" uid="uid://de5yxous7cxia" path="res://tmp/level.png" id="3_7lghd"]
+[ext_resource type="Script" path="res://tmp/player.gd" id="3_sf35x"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Camera2D"]
+texture = ExtResource("1_u2dqq")
+
+[node name="Player" parent="." instance=ExtResource("2_phniv")]
+script = ExtResource("3_sf35x")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("3_7lghd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-964, 165, -618, 168, -614, -76, -468, -76, -472, 175, -100, 175, -101, 546, 16, 543, 8, 162, 963, 162, 957, 638, -964, 616)
