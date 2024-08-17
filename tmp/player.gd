@@ -10,7 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("SPACE"):
-		print("SPACE")
+
 		velocity = Vector2.ZERO
 		global_position = Vector2.ZERO
 	if not is_on_floor():

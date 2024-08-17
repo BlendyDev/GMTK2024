@@ -17,7 +17,7 @@ func adjustPos():
 	child.position = -lupa.global_position
 
 func scaleHandle():
-	var scaleAdj = Input.get_axis("SCROLL_DOWN", "SCROLL_UP")
-	global_scale.x = max(1, global_scale.x + scaleAdj*0.01)
-	global_scale.y = max(1, global_scale.y + scaleAdj*0.01)
-	print(str(global_scale.x))
+	var scaleAdj = int(Input.is_action_just_released("SCROLL_UP"))-int(Input.is_action_just_released("SCROLL_DOWN"))
+	global_scale.x = max(1, global_scale.x + scaleAdj*0.1)
+	global_scale.y = max(1, global_scale.y + scaleAdj*0.1)
+
