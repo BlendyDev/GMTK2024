@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bc77s0v03x3cw"]
+[gd_scene load_steps=12 format=3 uid="uid://bc77s0v03x3cw"]
 
 [ext_resource type="Texture2D" uid="uid://cjn7jwejwe5h5" path="res://tmp/protoBG.png" id="1_u2dqq"]
 [ext_resource type="PackedScene" uid="uid://6guy5rxqs3n2" path="res://tmp/player.tscn" id="2_phniv"]
@@ -7,12 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://ryfkwa1hsnbv" path="res://tmp/lupatmp.png" id="4_dlxum"]
 [ext_resource type="Script" path="res://scenes/Intersection.gd" id="4_s4xbj"]
 [ext_resource type="Script" path="res://scenes/Lupa.gd" id="5_3lfik"]
+[ext_resource type="Texture2D" uid="uid://bx0n1l8efb5gt" path="res://tmp/inverseMask.png" id="6_mwlhc"]
 [ext_resource type="Texture2D" uid="uid://d4kv5j74sv0uo" path="res://tmp/lupainside.png" id="8_5p1yo"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wika4"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ux22w"]
 light_mode = 2
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ijoww"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wika4"]
 light_mode = 2
 
 [node name="Node2D" type="Node2D"]
@@ -24,54 +25,68 @@ texture = ExtResource("1_u2dqq")
 
 [node name="Player" parent="." instance=ExtResource("2_phniv")]
 position = Vector2(18, 46)
-collision_mask = 8
+collision_mask = 16
 
 [node name="Lupa" type="Area2D" parent="."]
 position = Vector2(11, 164)
 scale = Vector2(5.6, 5.6)
+collision_layer = 2
 script = ExtResource("5_3lfik")
 
 [node name="Sprite2D" type="Sprite2D" parent="Lupa"]
+z_index = 100
 texture = ExtResource("4_dlxum")
 
 [node name="LupaCollisionPolygon" type="CollisionPolygon2D" parent="Lupa"]
 polygon = PackedVector2Array(-8, -3, -8, -9, -6, -14, -2, -18, 3, -20, 9, -20, 14, -18, 18, -14, 20, -9, 20, -3, 18, 2, 14, 6, 9, 8, 3, 8, -2, 6, -6, 2)
 
-[node name="PointLight2D" type="PointLight2D" parent="Lupa"]
+[node name="Mask" type="PointLight2D" parent="Lupa"]
 energy = 0.0
 texture = ExtResource("8_5p1yo")
 
+[node name="InvMask" type="PointLight2D" parent="Lupa"]
+light_mask = 2
+visibility_layer = 2
+energy = 0.0
+range_item_cull_mask = 2
+texture = ExtResource("6_mwlhc")
+
 [node name="LevelHandler" type="Node2D" parent="."]
 
+[node name="Level" type="Area2D" parent="LevelHandler"]
+collision_layer = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelHandler/Level"]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_ux22w")
+texture = ExtResource("3_7lghd")
+
+[node name="LevelCollisionPolygon" type="CollisionPolygon2D" parent="LevelHandler/Level"]
+polygon = PackedVector2Array(9, 165, 963, 165, 961, 547, 9, 541, -205, 542, -955, 542, -966, 174, -623, 167, -627, -75, -467, -73, -473, 169, -103, 167, -112, 531, -15, 520, 8, 236)
+
 [node name="ScaledLevel" type="Area2D" parent="LevelHandler"]
-position = Vector2(11, 9)
-collision_layer = 2
+position = Vector2(-34, -34)
+collision_layer = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="LevelHandler/ScaledLevel"]
 material = SubResource("CanvasItemMaterial_wika4")
 texture = ExtResource("4_cib4e")
 
-[node name="LevelCollisionPolygon" type="CollisionPolygon2D" parent="LevelHandler/ScaledLevel"]
-polygon = PackedVector2Array(9, 165, 265, 165, 277, 239, 8, 236)
+[node name="ScaledLevelCollisionPolygon2" type="CollisionPolygon2D" parent="LevelHandler/ScaledLevel"]
+polygon = PackedVector2Array(9, 165, 963, 165, 961, 547, 9, 541, -205, 542, -955, 542, -966, 174, -623, 167, -627, -75, -467, -73, -473, 169, -103, 167, -112, 531, -15, 520, 8, 236)
 
-[node name="Level" type="Area2D" parent="LevelHandler"]
-collision_layer = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="LevelHandler/Level"]
-self_modulate = Color(1, 1, 1, 0)
-material = SubResource("CanvasItemMaterial_ijoww")
-position = Vector2(84, -20)
-texture = ExtResource("3_7lghd")
-
-[node name="LevelCollisionPolygon" type="CollisionPolygon2D" parent="LevelHandler/Level"]
-polygon = PackedVector2Array(9, 165, 265, 165, 277, 239, 8, 236)
-
-[node name="Intersection" type="StaticBody2D" parent="LevelHandler" node_paths=PackedStringArray("lupa", "level", "intersection")]
-collision_layer = 8
+[node name="LevelIntersection" type="StaticBody2D" parent="LevelHandler" node_paths=PackedStringArray("lupa", "level")]
+collision_layer = 16
 collision_mask = 0
 script = ExtResource("4_s4xbj")
-lupa = NodePath("../Level")
-level = NodePath("../../Lupa")
-intersection = NodePath("IntersectionCollisionPolygon")
+lupa = NodePath("../../Lupa")
+level = NodePath("../Level")
 
-[node name="IntersectionCollisionPolygon" type="CollisionPolygon2D" parent="LevelHandler/Intersection"]
+[node name="InverseLevelIntersection" type="StaticBody2D" parent="LevelHandler" node_paths=PackedStringArray("lupa", "level")]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("4_s4xbj")
+lupa = NodePath("../../Lupa")
+level = NodePath("../ScaledLevel")
+inverseMode = true

@@ -51,8 +51,10 @@ SPACE={
 [layer_names]
 
 2d_physics/layer_1="player"
-2d_physics/layer_2="level"
-2d_physics/layer_3="lupa"
+2d_physics/layer_2="lupa"
+2d_physics/layer_3="level"
+2d_physics/layer_4="scaledLevel"
+2d_physics/layer_5="walkableIntersections"
 
 [rendering]
 
