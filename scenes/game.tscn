@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc77s0v03x3cw"]
+[gd_scene load_steps=7 format=3 uid="uid://bc77s0v03x3cw"]
 
 [ext_resource type="Texture2D" uid="uid://cjn7jwejwe5h5" path="res://tmp/protoBG.png" id="1_u2dqq"]
 [ext_resource type="PackedScene" uid="uid://6guy5rxqs3n2" path="res://tmp/player.tscn" id="2_phniv"]
 [ext_resource type="Texture2D" uid="uid://de5yxous7cxia" path="res://tmp/level.png" id="3_7lghd"]
-[ext_resource type="Script" path="res://tmp/player.gd" id="3_sf35x"]
+[ext_resource type="Texture2D" uid="uid://ryfkwa1hsnbv" path="res://tmp/lupatmp.png" id="4_dlxum"]
+[ext_resource type="Script" path="res://scenes/Intersection.gd" id="4_s4xbj"]
+[ext_resource type="Script" path="res://scenes/Lupa.gd" id="5_3lfik"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,12 +15,37 @@
 texture = ExtResource("1_u2dqq")
 
 [node name="Player" parent="." instance=ExtResource("2_phniv")]
-script = ExtResource("3_sf35x")
+position = Vector2(18, 46)
+collision_mask = 8
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="LevelHandler" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Level" type="Area2D" parent="LevelHandler"]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelHandler/Level"]
 texture = ExtResource("3_7lghd")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-964, 165, -618, 168, -614, -76, -468, -76, -472, 175, -100, 175, -101, 546, 16, 543, 8, 162, 963, 162, 957, 638, -964, 616)
+[node name="LevelCollisionPolygon" type="CollisionPolygon2D" parent="LevelHandler/Level"]
+polygon = PackedVector2Array(9, 165, 265, 165, 277, 239, 8, 236)
+
+[node name="Intersection" type="StaticBody2D" parent="LevelHandler" node_paths=PackedStringArray("lupa", "level", "intersection")]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("4_s4xbj")
+lupa = NodePath("../Level")
+level = NodePath("../../Lupa")
+intersection = NodePath("IntersectionCollisionPolygon")
+
+[node name="IntersectionCollisionPolygon" type="CollisionPolygon2D" parent="LevelHandler/Intersection"]
+
+[node name="Lupa" type="Area2D" parent="."]
+position = Vector2(11, 164)
+scale = Vector2(5.6, 5.6)
+script = ExtResource("5_3lfik")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lupa"]
+texture = ExtResource("4_dlxum")
+
+[node name="LupaCollisionPolygon" type="CollisionPolygon2D" parent="Lupa"]
+polygon = PackedVector2Array(-8, -3, -8, -9, -6, -14, -2, -18, 3, -20, 9, -20, 14, -18, 18, -14, 20, -9, 20, -3, 18, 2, 14, 6, 9, 8, 3, 8, -2, 6, -6, 2)
