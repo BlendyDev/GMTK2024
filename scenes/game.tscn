@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bc77s0v03x3cw"]
+[gd_scene load_steps=13 format=3 uid="uid://bc77s0v03x3cw"]
 
 [ext_resource type="Texture2D" uid="uid://cjn7jwejwe5h5" path="res://tmp/protoBG.png" id="1_u2dqq"]
 [ext_resource type="PackedScene" uid="uid://6guy5rxqs3n2" path="res://tmp/player.tscn" id="2_phniv"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/Lupa.gd" id="5_3lfik"]
 [ext_resource type="Texture2D" uid="uid://bx0n1l8efb5gt" path="res://tmp/inverseMask.png" id="6_mwlhc"]
 [ext_resource type="Texture2D" uid="uid://d4kv5j74sv0uo" path="res://tmp/lupainside.png" id="8_5p1yo"]
+[ext_resource type="Script" path="res://tmp/ScaledLevel.gd" id="8_6o1sp"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ux22w"]
 light_mode = 2
@@ -28,7 +29,6 @@ position = Vector2(18, 46)
 collision_mask = 16
 
 [node name="Lupa" type="Area2D" parent="."]
-position = Vector2(11, 164)
 scale = Vector2(5.6, 5.6)
 collision_layer = 2
 script = ExtResource("5_3lfik")
@@ -65,15 +65,20 @@ texture = ExtResource("3_7lghd")
 [node name="LevelCollisionPolygon" type="CollisionPolygon2D" parent="LevelHandler/Level"]
 polygon = PackedVector2Array(9, 165, 963, 165, 961, 547, 9, 541, -205, 542, -955, 542, -966, 174, -623, 167, -627, -75, -467, -73, -473, 169, -103, 167, -112, 531, -15, 520, 8, 236)
 
-[node name="ScaledLevel" type="Area2D" parent="LevelHandler"]
-position = Vector2(-34, -34)
+[node name="ScaledLevel" type="Node2D" parent="LevelHandler" node_paths=PackedStringArray("lupa")]
+position = Vector2(-1000, 0)
+script = ExtResource("8_6o1sp")
+lupa = NodePath("../../Lupa")
+
+[node name="ScaledLevel" type="Area2D" parent="LevelHandler/ScaledLevel"]
+position = Vector2(1000, 0)
 collision_layer = 8
 
-[node name="Sprite2D" type="Sprite2D" parent="LevelHandler/ScaledLevel"]
+[node name="Sprite2D" type="Sprite2D" parent="LevelHandler/ScaledLevel/ScaledLevel"]
 material = SubResource("CanvasItemMaterial_wika4")
 texture = ExtResource("4_cib4e")
 
-[node name="ScaledLevelCollisionPolygon2" type="CollisionPolygon2D" parent="LevelHandler/ScaledLevel"]
+[node name="ScaledLevelCollisionPolygon2" type="CollisionPolygon2D" parent="LevelHandler/ScaledLevel/ScaledLevel"]
 polygon = PackedVector2Array(9, 165, 963, 165, 961, 547, 9, 541, -205, 542, -955, 542, -966, 174, -623, 167, -627, -75, -467, -73, -473, 169, -103, 167, -112, 531, -15, 520, 8, 236)
 
 [node name="LevelIntersection" type="StaticBody2D" parent="LevelHandler" node_paths=PackedStringArray("lupa", "level")]
@@ -88,5 +93,5 @@ collision_layer = 16
 collision_mask = 0
 script = ExtResource("4_s4xbj")
 lupa = NodePath("../../Lupa")
-level = NodePath("../ScaledLevel")
+level = NodePath("../ScaledLevel/ScaledLevel")
 inverseMode = true
