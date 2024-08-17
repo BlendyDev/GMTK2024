@@ -1,11 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://bc77s0v03x3cw"]
+[gd_scene load_steps=11 format=3 uid="uid://bc77s0v03x3cw"]
 
 [ext_resource type="Texture2D" uid="uid://cjn7jwejwe5h5" path="res://tmp/protoBG.png" id="1_u2dqq"]
 [ext_resource type="PackedScene" uid="uid://6guy5rxqs3n2" path="res://tmp/player.tscn" id="2_phniv"]
 [ext_resource type="Texture2D" uid="uid://de5yxous7cxia" path="res://tmp/level.png" id="3_7lghd"]
+[ext_resource type="Texture2D" uid="uid://dt3laryfc1e27" path="res://tmp/levelscaled.png" id="4_cib4e"]
 [ext_resource type="Texture2D" uid="uid://ryfkwa1hsnbv" path="res://tmp/lupatmp.png" id="4_dlxum"]
 [ext_resource type="Script" path="res://scenes/Intersection.gd" id="4_s4xbj"]
 [ext_resource type="Script" path="res://scenes/Lupa.gd" id="5_3lfik"]
+[ext_resource type="Texture2D" uid="uid://d4kv5j74sv0uo" path="res://tmp/lupainside.png" id="8_5p1yo"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wika4"]
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ijoww"]
+light_mode = 2
 
 [node name="Node2D" type="Node2D"]
 
@@ -18,12 +26,41 @@ texture = ExtResource("1_u2dqq")
 position = Vector2(18, 46)
 collision_mask = 8
 
+[node name="Lupa" type="Area2D" parent="."]
+position = Vector2(11, 164)
+scale = Vector2(5.6, 5.6)
+script = ExtResource("5_3lfik")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lupa"]
+texture = ExtResource("4_dlxum")
+
+[node name="LupaCollisionPolygon" type="CollisionPolygon2D" parent="Lupa"]
+polygon = PackedVector2Array(-8, -3, -8, -9, -6, -14, -2, -18, 3, -20, 9, -20, 14, -18, 18, -14, 20, -9, 20, -3, 18, 2, 14, 6, 9, 8, 3, 8, -2, 6, -6, 2)
+
+[node name="PointLight2D" type="PointLight2D" parent="Lupa"]
+energy = 0.0
+texture = ExtResource("8_5p1yo")
+
 [node name="LevelHandler" type="Node2D" parent="."]
+
+[node name="ScaledLevel" type="Area2D" parent="LevelHandler"]
+position = Vector2(11, 9)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelHandler/ScaledLevel"]
+material = SubResource("CanvasItemMaterial_wika4")
+texture = ExtResource("4_cib4e")
+
+[node name="LevelCollisionPolygon" type="CollisionPolygon2D" parent="LevelHandler/ScaledLevel"]
+polygon = PackedVector2Array(9, 165, 265, 165, 277, 239, 8, 236)
 
 [node name="Level" type="Area2D" parent="LevelHandler"]
 collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="LevelHandler/Level"]
+self_modulate = Color(1, 1, 1, 0)
+material = SubResource("CanvasItemMaterial_ijoww")
+position = Vector2(84, -20)
 texture = ExtResource("3_7lghd")
 
 [node name="LevelCollisionPolygon" type="CollisionPolygon2D" parent="LevelHandler/Level"]
@@ -38,14 +75,3 @@ level = NodePath("../../Lupa")
 intersection = NodePath("IntersectionCollisionPolygon")
 
 [node name="IntersectionCollisionPolygon" type="CollisionPolygon2D" parent="LevelHandler/Intersection"]
-
-[node name="Lupa" type="Area2D" parent="."]
-position = Vector2(11, 164)
-scale = Vector2(5.6, 5.6)
-script = ExtResource("5_3lfik")
-
-[node name="Sprite2D" type="Sprite2D" parent="Lupa"]
-texture = ExtResource("4_dlxum")
-
-[node name="LupaCollisionPolygon" type="CollisionPolygon2D" parent="Lupa"]
-polygon = PackedVector2Array(-8, -3, -8, -9, -6, -14, -2, -18, 3, -20, 9, -20, 14, -18, 18, -14, 20, -9, 20, -3, 18, 2, 14, 6, 9, 8, 3, 8, -2, 6, -6, 2)

@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
-func _physics_process(delta):https://github.com/BlendyDev/GMTK2024
+func _physics_process(delta):
 	if Input.is_action_just_pressed("SPACE"):
 		print("SPACE")
 		velocity = Vector2.ZERO
