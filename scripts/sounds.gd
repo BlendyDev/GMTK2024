@@ -67,3 +67,5 @@ func turtlevoice():
 	$Voices/TurtleVoice.play()
 func stopturtlevoice():
 	$Voices/TurtleVoice.stop()
+func land():
+	$SFX/LandSound.play()

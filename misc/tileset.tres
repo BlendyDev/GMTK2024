@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://btljhd74hotd6"]
 
-[ext_resource type="Texture2D" uid="uid://dinfx61ji1gwu" path="res://tmp/tileset1.png" id="1_ftmoc"]
+[ext_resource type="Texture2D" uid="uid://dinfx61ji1gwu" path="res://sprites/tileset1.png" id="1_840yb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xjtky"]
-texture = ExtResource("1_ftmoc")
+texture = ExtResource("1_840yb")
 margins = Vector2i(0, 11)
 texture_region_size = Vector2i(23, 23)
 0:2/0 = 0
@@ -133,6 +133,13 @@ texture_region_size = Vector2i(23, 23)
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-11.5, -11.5, 11.5, -11.5, 11.5, 11.5, -11.5, 11.5)
+0:8/0 = 0
+0:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:8/0/physics_layer_0/angular_velocity = 0.0
+0:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-11.5, -11.5, 11.5, -11.5, 11.5, 11.5, -11.5, 11.5)
+4:7/0 = 0
+4:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:7/0/physics_layer_0/angular_velocity = 0.0
 
 [resource]
 tile_size = Vector2i(23, 23)
