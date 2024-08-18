@@ -1,11 +1,12 @@
 extends StaticBody2D
 
-@export var lupa: Area2D
+@export var lupa: Lupa
 @export var tilemap: TileMap
-var intersectionRes = preload("res://tmp/intersectionCollision.tscn")
+var intersectionRes = preload("res://scenes/intersectionCollision.tscn")
 @export var inverseMode := false
 @export var tileRadius := 4
 @export var player: CharacterBody2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -13,7 +14,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	createTiledIntersection() if inverseMode else createTiledDifference()
+	if (lupa.modeUsesCustomTerrain()):
+		createTiledIntersection() if inverseMode else createTiledDifference()
+	else: createColliders([])
 
 	
 ##Create colliders based on the intersection of collider areas defined by tiles in tilemap and lupa
