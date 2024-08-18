@@ -22,6 +22,9 @@ light_mode = 2
 scale = Vector2(0.691001, 0.728167)
 zoom = Vector2(2.5, 2.5)
 
+[node name="Background" type="Sprite2D" parent="Camera2D"]
+visible = false
+
 [node name="Player" parent="." instance=ExtResource("2_phniv")]
 position = Vector2(-3, -78)
 collision_mask = 16
