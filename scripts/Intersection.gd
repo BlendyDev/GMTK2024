@@ -71,8 +71,8 @@ func offsetTilePolygon (tile) -> PackedVector2Array:
 ##Get the collision polygon of a tile (based on tile coordinates)
 func getTileCollision(tile) -> PackedVector2Array:
 	var tileData = tilemap.get_cell_tile_data(0, tile)
-	if (tileData == null || tileData.get_collision_polygons_count(0) == 0):
-		return PackedVector2Array()
+	if (tileData == null): return PackedVector2Array()
+	if tileData.get_collision_polygons_count(0) == 0: return PackedVector2Array()
 	var polygon = tileData.get_collision_polygon_points(0, 0)
 	return polygon
 

@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=3 uid="uid://0mvoctdun5rx"]
+
+[ext_resource type="Script" path="res://scripts/sounds.gd" id="1_8udjt"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2u61d"]
+random_pitch = 1.02
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/weight = 0.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qty6a"]
+random_pitch = 1.2
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/weight = 0.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6p4yy"]
+random_pitch = 1.1
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/weight = 0.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lqc2g"]
+random_pitch = 1.1
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/weight = 0.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5u5ta"]
+random_pitch = 1.15
+streams_count = 1
+stream_0/weight = 0.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n0jcm"]
+random_pitch = 1.1
+random_volume_offset_db = 1.0
+streams_count = 7
+stream_0/weight = 10.0
+stream_1/weight = 5.0
+stream_2/weight = 7.0
+stream_3/weight = 6.0
+stream_4/weight = 9.0
+stream_5/weight = 3.0
+stream_6/weight = 2.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a8rfd"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/weight = 0.0
+
+[node name="Sounds" type="Node2D"]
+script = ExtResource("1_8udjt")
+
+[node name="Music" type="Node" parent="."]
+
+[node name="MainMenuMusic" type="AudioStreamPlayer2D" parent="Music"]
+volume_db = -10.0
+pitch_scale = 0.75
+autoplay = true
+bus = &"Music"
+
+[node name="TutorialMusic" type="AudioStreamPlayer2D" parent="Music"]
+volume_db = -2.0
+max_distance = 2.09803e+07
+panning_strength = 0.0
+bus = &"Music"
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="SFX"]
+
+[node name="UIHover" type="AudioStreamPlayer2D" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_2u61d")
+volume_db = -6.0
+bus = &"SFX"
+
+[node name="UIClick" type="AudioStreamPlayer2D" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_qty6a")
+bus = &"SFX"
+
+[node name="UIEnter" type="AudioStreamPlayer2D" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_6p4yy")
+volume_db = 4.0
+bus = &"SFX"
+
+[node name="UIQuit" type="AudioStreamPlayer2D" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_lqc2g")
+volume_db = 14.0
+bus = &"SFX"
+
+[node name="UIQuitNo" type="AudioStreamPlayer2D" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_lqc2g")
+volume_db = 14.0
+pitch_scale = 1.5
+bus = &"SFX"
+
+[node name="UIQuitYes" type="AudioStreamPlayer2D" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_lqc2g")
+volume_db = 14.0
+pitch_scale = 0.75
+bus = &"SFX"
+
+[node name="NewDialogue" type="AudioStreamPlayer2D" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_5u5ta")
+panning_strength = 0.0
+bus = &"SFX"
+
+[node name="Voices" type="Node" parent="."]
+
+[node name="JumpVoice" type="AudioStreamPlayer2D" parent="Voices"]
+stream = SubResource("AudioStreamRandomizer_n0jcm")
+volume_db = 6.0
+panning_strength = 0.0
+bus = &"Voices"
+
+[node name="UINo" type="AudioStreamPlayer2D" parent="Voices"]
+
+[node name="TurtleVoice" type="AudioStreamPlayer2D" parent="Voices"]
+stream = SubResource("AudioStreamRandomizer_a8rfd")
