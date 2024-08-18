@@ -469,7 +469,6 @@ script = ExtResource("8_6o1sp")
 lupa = NodePath("../../Lupa")
 
 [node name="ScaledLevel2" type="TileMap" parent="LevelHandler/ScaledLevel"]
-visible = false
 light_mask = 2
 visibility_layer = 2
 material = SubResource("CanvasItemMaterial_av87b")
