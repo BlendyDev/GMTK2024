@@ -175,7 +175,23 @@ frame_progress = 0.94681
 
 [node name="Steps" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_tbsfw")
-volume_db = -17.325
+volume_db = -4.176
 attenuation = 1.23114
 panning_strength = 0.0
 bus = &"SFX"
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
+
+[node name="CoyoteTime" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="JumpHeight" type="Timer" parent="."]
+wait_time = 0.01
+one_shot = true
+
+[connection signal="timeout" from="JumpBuffer" to="." method="jumpBufferTimeout"]
+[connection signal="timeout" from="CoyoteTime" to="." method="coyoteTimeout"]
+[connection signal="timeout" from="JumpHeight" to="." method="jumpHeightTimeout"]
