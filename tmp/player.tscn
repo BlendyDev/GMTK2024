@@ -175,7 +175,7 @@ frame_progress = 0.94681
 
 [node name="Steps" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_tbsfw")
-volume_db = -4.176
+volume_db = 0.677
 attenuation = 1.23114
 panning_strength = 0.0
 bus = &"SFX"

@@ -84,11 +84,13 @@ func handleMoving(direction, delta):
 	if $Steps.playing && !is_on_floor(): $Steps.stream_paused = true
 	$AnimatedSprite2D.flip_h = direction == -1 
 	if shifting:
+		$Steps.pitch_scale = 1.3
 		velocity.x = max(abs(velocity.x), max_speed(false)) * direction
 		velocity.x = move_toward(velocity.x, direction * max_speed(true), accel(direction) * delta)
 		$AnimatedSprite2D.rotation = direction * 0.1308996939
 		$AnimatedSprite2D.speed_scale = 1.5
 	else:
+		$Steps.pitch_scale = 1.0
 		velocity.x = max(abs(velocity.x), max_speed(false)) * direction
 		$AnimatedSprite2D.rotation = 0
 		$AnimatedSprite2D.speed_scale = 1
