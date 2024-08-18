@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://6guy5rxqs3n2"]
+[gd_scene load_steps=27 format=3 uid="uid://6guy5rxqs3n2"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_8ix6n"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_lbma7"]
 [ext_resource type="Texture2D" uid="uid://brcicxht2alae" path="res://sprites/player/idle.png" id="2_2amsf"]
 [ext_resource type="Texture2D" uid="uid://d2cad3qjvrqkc" path="res://sprites/player/walk.png" id="3_bnrw3"]
 [ext_resource type="AudioStream" uid="uid://b0lcnku8y725o" path="res://sfx/steppin3.wav" id="4_fi0ek"]
+[ext_resource type="PackedScene" uid="uid://l2redlkqy0uh" path="res://scenes/dust.tscn" id="5_is107"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0qbx4"]
 radius = 8.5
@@ -161,7 +162,7 @@ stream_0/stream = ExtResource("4_fi0ek")
 stream_0/weight = 1.0
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_8ix6n")
+script = ExtResource("1_lbma7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 2)
@@ -192,6 +193,11 @@ one_shot = true
 wait_time = 0.01
 one_shot = true
 
+[node name="Dust" parent="." instance=ExtResource("5_is107")]
+position = Vector2(2, 77)
+
 [connection signal="timeout" from="JumpBuffer" to="." method="jumpBufferTimeout"]
 [connection signal="timeout" from="CoyoteTime" to="." method="coyoteTimeout"]
 [connection signal="timeout" from="JumpHeight" to="." method="jumpHeightTimeout"]
+
+[editable path="Dust"]
