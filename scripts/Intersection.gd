@@ -3,8 +3,8 @@ extends StaticBody2D
 @export var lupa: Area2D
 @export var tilemap: TileMap
 var intersectionRes = preload("res://tmp/intersectionCollision.tscn")
-@export var inverseMode = false
-@export var tileRadius = 4
+@export var inverseMode := false
+@export var tileRadius := 4
 @export var player: CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,7 +22,6 @@ func createTiledIntersection():
 	var adjustedPolygons = getAdjustedPolygons(lupa.global_position)
 	for polygon in adjustedPolygons:
 		intersectedPolygons.append_array(Geometry2D.intersect_polygons(polygon, offsetPolygon(lupa)))
-	print (str(intersectedPolygons.size()))
 	createColliders(intersectedPolygons)
 		
 ##Create colliders based on the difference of collider areas defined by tiles-lupa
@@ -38,29 +37,29 @@ func createTiledDifference():
 
 ##Returns array of offset polygons near lupa's global_position
 func getAdjustedPolygons(center: Vector2):
-	var tileCoords = tilemap.local_to_map(tilemap.to_local(center))
-	var tiles = getNearbyTiles(tileCoords, tileRadius)
-	var polygons = offsetTiles(tiles)
+	var tileCoords := tilemap.local_to_map(tilemap.to_local(center))
+	var tiles := getNearbyTiles(tileCoords, tileRadius)
+	var polygons := offsetTiles(tiles)
 	return polygons
 	
 ##Returns tile coordinates near a tile based on tileRadius
-func getNearbyTiles(tile, tileRadius):
-	var tiles = []
+func getNearbyTiles(tile, tileRadius) -> Array[Vector2]:
+	var tiles: Array[Vector2] = []
 	for a in range(-tileRadius, tileRadius):
 		for b in range(-tileRadius,tileRadius):
-			var currenttile = Vector2(a + tile.x,b + tile.y)
-			tiles.append(currenttile)
+			var currentTile = Vector2(a + tile.x,b + tile.y)
+			tiles.append(currentTile)
 	return tiles
 	
 ##Returns an array of offset polygons corresponding to the tile
-func offsetTiles (tiles):
+func offsetTiles (tiles) -> Array:
 	var offsetPolygons = []
 	for tile in tiles:
 		offsetPolygons.append(offsetTilePolygon(tile))
 	return offsetPolygons
 
 ##Offset the collision polygon of a tile (by tile coordinates) based on tilemap's global_scale 
-func offsetTilePolygon (tile):
+func offsetTilePolygon (tile) -> PackedVector2Array:
 	var newPoly = PackedVector2Array()
 	var pos = tilemap.to_global(tilemap.map_to_local(tile))
 	var polygon = getTileCollision(tile)
@@ -72,25 +71,25 @@ func offsetTilePolygon (tile):
 ##Get the collision polygon of a tile (based on tile coordinates)
 func getTileCollision(tile) -> PackedVector2Array:
 	var tileData = tilemap.get_cell_tile_data(0, tile)
-	if (tileData == null):
+	if (tileData == null || tileData.get_collision_polygons_count(0) == 0):
 		return PackedVector2Array()
 	var polygon = tileData.get_collision_polygon_points(0, 0)
 	return polygon
 
 ##Lazily create enough children to assign colliders to
-func createColliders(polygons):
+func createColliders(polygons) -> void:
 	if (polygons.size() > get_child_count()):
 		instantiateChildren(polygons.size() - get_child_count())
 	for i in range(0, get_child_count()):
 		get_child(i).polygon = polygons[i] if polygons.size() > i else PackedVector2Array()
 
 ##Add num new children to intersectionRes
-func instantiateChildren(num):
+func instantiateChildren(num) -> void:
 	for i in range(0, num):
 		add_child(intersectionRes.instantiate())
 
 ##Offset the collision polygon of an Area2D based on its global_transform
-func offsetPolygon (area: Area2D):
+func offsetPolygon (area: Area2D) -> PackedVector2Array:
 	var newPoly = PackedVector2Array()
 	var collisionPolygon: CollisionPolygon2D = Util.findChild(area, "CollisionPolygon2D")
 	var pos = collisionPolygon.global_position
@@ -98,7 +97,7 @@ func offsetPolygon (area: Area2D):
 	
 	var polygon = collisionPolygon.polygon
 	if (collisionPolygon == null):
-		return null
+		return PackedVector2Array()
 	for i in range(0, polygon.size()):
 		var vert = polygon[i]
 		newPoly.append(Vector2(vert.x, vert.y))#why tf did i do this it does nothing lmao

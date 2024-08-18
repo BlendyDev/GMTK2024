@@ -1,31 +1,64 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-
+@export var MAX_SPEED := 150.0
+@export var MAX_AIR_SPEED := 200
+@export var MAX_DASH_SPEED := 250.0
+@export var MAX_AIR_DASH_SPEED := 200
+@export var LONG_JUMP_SPEED := 500.0
+@export var JUMP_VELOCITY := -400.0
+@export var ACCELERATION := 400
+@export var DASH_ACCELERATION := 400
+@export var DECELERATION := 1000
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+var shifting = false
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("SPACE"):
-
 		velocity = Vector2.ZERO
 		global_position = Vector2.ZERO
-	if not is_on_floor():
+	shifting = Input.is_action_pressed("SHIFT")
+	var direction := Input.get_axis("LEFT", "RIGHT")
+	if is_on_floor():
+		$AnimatedSprite2D.animation = "idle" if direction == 0 else "walk"
+	else:
 		velocity.y += gravity * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("UP") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("LEFT", "RIGHT")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	
+	handleMoving(direction, delta) if direction else handleStatic(delta)
 	move_and_slide()
+
+func max_speed(dash):
+	if (dash):
+		if (is_on_floor()): return MAX_DASH_SPEED
+		else: return MAX_AIR_DASH_SPEED
+	else:
+		if (is_on_floor()): return MAX_SPEED
+		else: return MAX_AIR_SPEED
+func accel(direction):
+	if (velocity.x * direction < 0): return DECELERATION
+	return DASH_ACCELERATION if shifting else ACCELERATION
+	
+func handleMoving(direction, delta):
+	$AnimatedSprite2D.flip_h = direction == -1 
+	if shifting:
+		velocity.x = max(abs(velocity.x), max_speed(false)) * direction
+		velocity.x = move_toward(velocity.x, direction * max_speed(true), accel(direction) * delta)
+		$AnimatedSprite2D.rotation = direction * 0.1308996939
+		$AnimatedSprite2D.speed_scale = 1.5
+	else:
+		velocity.x = max(abs(velocity.x), max_speed(false)) * direction
+		$AnimatedSprite2D.rotation = 0
+		$AnimatedSprite2D.speed_scale = 1
+
+func handleStatic(delta):
+	velocity.x = move_toward(velocity.x, 0, DECELERATION)
+	$AnimatedSprite2D.speed_scale = 1
+	$AnimatedSprite2D.rotation = 0
+
