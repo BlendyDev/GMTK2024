@@ -1,21 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://bc77s0v03x3cw"]
+[gd_scene load_steps=5 format=3 uid="uid://nmr113c7ylue"]
 
-[ext_resource type="Texture2D" uid="uid://cjn7jwejwe5h5" path="res://tmp/protoBG.png" id="1_u2dqq"]
-[ext_resource type="PackedScene" uid="uid://6guy5rxqs3n2" path="res://tmp/player.tscn" id="2_phniv"]
-[ext_resource type="Texture2D" uid="uid://ryfkwa1hsnbv" path="res://tmp/lupatmp.png" id="4_dlxum"]
-[ext_resource type="Script" path="res://scripts/Intersection.gd" id="4_s4xbj"]
-[ext_resource type="Script" path="res://scenes/Lupa.gd" id="5_3lfik"]
-[ext_resource type="Texture2D" uid="uid://bx0n1l8efb5gt" path="res://tmp/inverseMask.png" id="6_mwlhc"]
-[ext_resource type="PackedScene" uid="uid://nmr113c7ylue" path="res://scenes/world.tscn" id="7_5pk8j"]
-[ext_resource type="Texture2D" uid="uid://d4kv5j74sv0uo" path="res://tmp/lupainside.png" id="8_5p1yo"]
-[ext_resource type="Script" path="res://tmp/ScaledLevel.gd" id="8_6o1sp"]
-[ext_resource type="Texture2D" uid="uid://btpty1vshdywp" path="res://tmp/world_tileset_brackeys.png" id="10_xvo42"]
+[ext_resource type="Texture2D" uid="uid://btpty1vshdywp" path="res://tmp/world_tileset_brackeys.png" id="1_daumi"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_av87b"]
 light_mode = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38olx"]
-texture = ExtResource("10_xvo42")
+texture = ExtResource("1_daumi")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -421,75 +412,10 @@ texture = ExtResource("10_xvo42")
 physics_layer_0/collision_layer = 4
 sources/0 = SubResource("TileSetAtlasSource_38olx")
 
-[node name="Node2D" type="Node2D"]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(0.691001, 0.728167)
-zoom = Vector2(2.5, 2.5)
-
-[node name="Background" type="Sprite2D" parent="Camera2D"]
-texture = ExtResource("1_u2dqq")
-
-[node name="Player" parent="." instance=ExtResource("2_phniv")]
-position = Vector2(8, -41)
-scale = Vector2(0.3, 0.3)
-collision_mask = 16
-
-[node name="Lupa" type="Area2D" parent="."]
-collision_layer = 2
-script = ExtResource("5_3lfik")
-
-[node name="Sprite2D" type="Sprite2D" parent="Lupa"]
-z_index = 100
-texture = ExtResource("4_dlxum")
-
-[node name="LupaCollisionPolygon" type="CollisionPolygon2D" parent="Lupa"]
-polygon = PackedVector2Array(-8, -3, -8, -9, -6, -14, -2, -18, 3, -20, 9, -20, 14, -18, 18, -14, 20, -9, 20, -3, 18, 2, 14, 6, 9, 8, 3, 8, -2, 6, -6, 2)
-
-[node name="Mask" type="PointLight2D" parent="Lupa"]
-energy = 0.0
-range_item_cull_mask = 2
-texture = ExtResource("8_5p1yo")
-
-[node name="InvMask" type="PointLight2D" parent="Lupa"]
-light_mask = 2
-visibility_layer = 2
-energy = 0.0
-texture = ExtResource("6_mwlhc")
-
-[node name="LevelHandler" type="Node2D" parent="."]
-
-[node name="Level" parent="LevelHandler" instance=ExtResource("7_5pk8j")]
-light_mask = 1
-visibility_layer = 1
-
-[node name="ScaledLevel" type="Node2D" parent="LevelHandler" node_paths=PackedStringArray("lupa")]
-position = Vector2(-1000, 0)
-script = ExtResource("8_6o1sp")
-lupa = NodePath("../../Lupa")
-
-[node name="ScaledLevel2" type="TileMap" parent="LevelHandler/ScaledLevel"]
-visible = false
+[node name="TileMap" type="TileMap"]
 light_mask = 2
 visibility_layer = 2
 material = SubResource("CanvasItemMaterial_av87b")
 tile_set = SubResource("TileSet_c3ijm")
 format = 2
 layer_0/tile_data = PackedInt32Array(65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 131071, 0, 1, 65536, 0, 1, 65537, 0, 1, 65538, 0, 1, 65539, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 65541, 0, 0, 65540, 0, 0, 131074, 0, 0, 131073, 0, 1, 131072, 0, 1, 196607, 0, 1, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, -131068, 458752, 2, 131078, 65536, 2, 131079, 65536, 2, 196615, 65536, 2, 196614, 65536, 2, 262150, 65536, 2, 262149, 65536, 2, 262148, 0, 0, 262147, 0, 0, 196617, 131072, 4, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65542, 0, 0, 196613, 0, 0, 196612, 0, 0, 262146, 0, 0, 262145, 0, 0, 196611, 0, 0, 196610, 0, 0)
-
-[node name="LevelIntersection" type="StaticBody2D" parent="LevelHandler" node_paths=PackedStringArray("lupa", "tilemap", "player")]
-collision_layer = 16
-collision_mask = 0
-script = ExtResource("4_s4xbj")
-lupa = NodePath("../../Lupa")
-tilemap = NodePath("../Level")
-player = NodePath("../../Player")
-
-[node name="InverseLevelIntersection" type="StaticBody2D" parent="LevelHandler" node_paths=PackedStringArray("lupa", "tilemap", "player")]
-collision_layer = 16
-collision_mask = 0
-script = ExtResource("4_s4xbj")
-lupa = NodePath("../../Lupa")
-tilemap = NodePath("../ScaledLevel/ScaledLevel2")
-inverseMode = true
-player = NodePath("../../Player")
