@@ -92,10 +92,10 @@ func instantiateChildren(num):
 ##Offset the collision polygon of an Area2D based on its global_transform
 func offsetPolygon (area: Area2D):
 	var newPoly = PackedVector2Array()
-	var pos = area.global_position
-	var trans = area.global_transform
-	
 	var collisionPolygon: CollisionPolygon2D = Util.findChild(area, "CollisionPolygon2D")
+	var pos = collisionPolygon.global_position
+	var trans = collisionPolygon.global_transform
+	
 	var polygon = collisionPolygon.polygon
 	if (collisionPolygon == null):
 		return null
