@@ -73,7 +73,6 @@ func switchLevel(switchingMode):
 	
 	Util.enableNode(alt) if mode == ModeType.DIFFERENT_LEVEL else Util.disableNode(alt)
 	Util.enableNode(invis) if mode == ModeType.INVISIBLE else Util.disableNode(invis)
-	
 
 	if modeUsesCustomTerrain():
 		mainTilemap.light_mask = mainTilemap.light_mask & ~(0b10)
@@ -93,6 +92,8 @@ func switchLevel(switchingMode):
 		player.collision_mask = player.collision_mask | 0b100000
 	else:
 		player.collision_mask = player.collision_mask & ~(0b100000)
+	if mode != ModeType.SCALE_PLAYER:
+		scalePlayer = 1.0
 
 func handleLevelScroll(delta):
 	var adjustment = int(Input.is_action_just_released("SCROLL_UP"))-int(Input.is_action_just_released("SCROLL_DOWN"))

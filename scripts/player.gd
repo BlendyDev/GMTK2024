@@ -46,7 +46,10 @@ func _physics_process(delta):
 		
 func resetLevel():
 	self.global_position = ogPos
+	velocity = Vector2.ZERO
 	lupa.mode = Lupa.ModeType.NONE
+	lupa.scalePlayer = 1.0
+	lupa.scaleLevel = 1.0
 func handleJump(delta, direction):
 	if Input.is_action_just_pressed("UP") and (is_on_floor() || coyote): jump()
 	if Input.is_action_pressed("UP") and jumpBuffered and is_on_floor(): jump()	

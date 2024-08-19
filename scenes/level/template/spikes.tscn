@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://0jhhntqpxxhf"]
+
+[ext_resource type="TileSet" uid="uid://cq4epndjyxfpd" path="res://misc/spikeTileset.tres" id="1_yljwp"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k1rsb"]
+light_mode = 2
+
+[node name="Spikes" type="TileMap"]
+material = SubResource("CanvasItemMaterial_k1rsb")
+tile_set = ExtResource("1_yljwp")
+format = 2
+layer_0/name = "Default"
+layer_0/tile_data = PackedInt32Array(-65535, 327680, 0)
