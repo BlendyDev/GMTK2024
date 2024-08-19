@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 @export var MAX_SPEED := 150.0
 @export var MAX_AIR_SPEED := 200
 @export var MAX_DASH_SPEED := 300.0

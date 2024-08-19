@@ -8,6 +8,7 @@ enum ModeType{NONE, BIG_ZOOM, SCALE_ITEM, STATIC, ADJUSTABLE_ZOOM, DIFFERENT_LEV
 @export var altLevel: Node2D
 @export var invisLevel: Node2D
 @export var player: CharacterBody2D
+@onready var terrainDetector: Area2D = Util.findChild(player, "Area2D")
 
 @export var bigZoomLevel: float = 1.81
 @export var zoomSpeed: float = 8.0
@@ -44,7 +45,7 @@ func scalableMode() -> bool:
 func handleModeSwitch() -> bool:
 	var oldMode = mode
 	if (Input.is_action_just_pressed("TAB")):
-		mode = max((mode + 1) % 7, 1)
+		mode = max((mode + 1) % 8, 1)
 	if (Input.is_action_just_pressed("1")): mode = ModeType.BIG_ZOOM
 	if (Input.is_action_just_pressed("2")): mode = ModeType.SCALE_ITEM
 	if (Input.is_action_just_pressed("3")): mode = ModeType.STATIC

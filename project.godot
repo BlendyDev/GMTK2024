@@ -124,6 +124,9 @@ RESET={
 2d_physics/layer_4="walkableIntersections"
 2d_physics/layer_5="inverseLevel"
 2d_physics/layer_6="lupaHitbox"
+2d_physics/layer_7="spikes"
+2d_physics/layer_8="spikeIntersections"
+2d_physics/layer_9="inverseSpikess"
 
 [rendering]
 

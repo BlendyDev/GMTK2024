@@ -1,9 +1,9 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bobrec0yeyxif"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://lrcip8vdk2tg"]
 
-[ext_resource type="Texture2D" uid="uid://dinfx61ji1gwu" path="res://sprites/tileset1.png" id="1_yfqce"]
+[ext_resource type="Texture2D" uid="uid://dinfx61ji1gwu" path="res://sprites/tileset1.png" id="1_f6gbn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0h2g5"]
-texture = ExtResource("1_yfqce")
+texture = ExtResource("1_f6gbn")
 margins = Vector2i(0, 11)
 texture_region_size = Vector2i(23, 23)
 0:0/0 = 0
@@ -193,5 +193,5 @@ texture_region_size = Vector2i(23, 23)
 
 [resource]
 tile_size = Vector2i(23, 23)
-physics_layer_0/collision_layer = 16
+physics_layer_0/collision_layer = 256
 sources/0 = SubResource("TileSetAtlasSource_0h2g5")
