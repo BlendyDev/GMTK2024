@@ -71,9 +71,9 @@ collision_layer = 8
 collision_mask = 0
 collision_priority = 0.135
 script = ExtResource("4_s4xbj")
-inverseMode = true
 lupa = NodePath("../../../Lupa")
 tilemap = NodePath("../ScaledLevel/ScaledLevel")
+inverseMode = true
 player = NodePath("../../../Player")
 
 [node name="Alternative" type="Node2D" parent="LevelHandler"]
@@ -93,9 +93,9 @@ layer_1/tile_data = PackedInt32Array()
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("4_s4xbj")
-inverseMode = true
 lupa = NodePath("../../../Lupa")
 tilemap = NodePath("../AlternativeLevel")
+inverseMode = true
 player = NodePath("../../../Player")
 
 [node name="Invisible" type="Node2D" parent="LevelHandler"]
@@ -116,9 +116,9 @@ layer_1/tile_data = PackedInt32Array(-3, 0, 1, -327683, 0, 1, -262147, 0, 1, -19
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("4_s4xbj")
-inverseMode = true
 lupa = NodePath("../../../Lupa")
 tilemap = NodePath("../InvisibleLevel")
+inverseMode = true
 player = NodePath("../../../Player")
 
 [connection signal="scaleLevelChanged" from="Lupa" to="LevelHandler/Scaled/ScaledLevel" method="scaleLevelChange"]

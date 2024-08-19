@@ -1,0 +1,296 @@
+[gd_scene load_steps=33 format=3 uid="uid://s022xsof5kwr"]
+
+[ext_resource type="Script" path="res://scripts/WinAnimation.gd" id="1_sie2i"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_21sbp"]
+[ext_resource type="Texture2D" uid="uid://brcicxht2alae" path="res://sprites/player/idle.png" id="3_4osuo"]
+[ext_resource type="Texture2D" uid="uid://d2cad3qjvrqkc" path="res://sprites/player/walk.png" id="4_5pp33"]
+[ext_resource type="AudioStream" uid="uid://b0lcnku8y725o" path="res://sfx/steppin3.wav" id="5_ylovl"]
+[ext_resource type="PackedScene" uid="uid://l2redlkqy0uh" path="res://scenes/dust.tscn" id="6_i271s"]
+[ext_resource type="Texture2D" uid="uid://cai60dv1man8i" path="res://sprites/baile-Sheet.png" id="7_j1p8o"]
+[ext_resource type="AudioStream" uid="uid://c1a2thoghadey" path="res://music/puzzlewinsound.wav" id="8_fpgry"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0qbx4"]
+radius = 8.5
+height = 35.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7muyb"]
+atlas = ExtResource("3_4osuo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oem3j"]
+atlas = ExtResource("3_4osuo")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vb8ko"]
+atlas = ExtResource("3_4osuo")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rtfk"]
+atlas = ExtResource("3_4osuo")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_078bj"]
+atlas = ExtResource("3_4osuo")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nggns"]
+atlas = ExtResource("3_4osuo")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku4ma"]
+atlas = ExtResource("3_4osuo")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u6i4"]
+atlas = ExtResource("3_4osuo")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgt80"]
+atlas = ExtResource("3_4osuo")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoy43"]
+atlas = ExtResource("3_4osuo")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1uj7"]
+atlas = ExtResource("4_5pp33")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evymg"]
+atlas = ExtResource("4_5pp33")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byndh"]
+atlas = ExtResource("4_5pp33")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc778"]
+atlas = ExtResource("4_5pp33")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1eor"]
+atlas = ExtResource("4_5pp33")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3bti"]
+atlas = ExtResource("4_5pp33")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iotkd"]
+atlas = ExtResource("4_5pp33")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flrte"]
+atlas = ExtResource("4_5pp33")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ngh5d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7muyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oem3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vb8ko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rtfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_078bj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nggns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku4ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7u6i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgt80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aoy43")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.5
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1uj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evymg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byndh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc778")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1eor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3bti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iotkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flrte")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tbsfw"]
+random_pitch = 1.02
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("5_ylovl")
+stream_0/weight = 1.0
+
+[sub_resource type="Animation" id="Animation_khxep"]
+resource_name = "dance"
+length = 6.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WinSound:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 4, 5.4, 5.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+}
+
+[sub_resource type="Animation" id="Animation_it3on"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WinSound:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j0nmo"]
+_data = {
+"RESET": SubResource("Animation_it3on"),
+"dance": SubResource("Animation_khxep")
+}
+
+[node name="WinAnimation" type="Node2D"]
+script = ExtResource("1_sie2i")
+
+[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("lupa")]
+visible = false
+position = Vector2(0, -26.99)
+collision_mask = 8
+script = ExtResource("2_21sbp")
+lupa = NodePath("")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(1, 2)
+shape = SubResource("CapsuleShape2D_0qbx4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_ngh5d")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="Steps" type="AudioStreamPlayer2D" parent="Player"]
+stream = SubResource("AudioStreamRandomizer_tbsfw")
+volume_db = 0.677
+attenuation = 1.23114
+panning_strength = 0.0
+bus = &"SFX"
+
+[node name="JumpBuffer" type="Timer" parent="Player"]
+wait_time = 0.75
+one_shot = true
+
+[node name="CoyoteTime" type="Timer" parent="Player"]
+wait_time = 0.3
+one_shot = true
+
+[node name="JumpHeight" type="Timer" parent="Player"]
+wait_time = 0.01
+one_shot = true
+
+[node name="Dust" parent="Player" instance=ExtResource("6_i271s")]
+position = Vector2(2, 77)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j0nmo")
+}
+speed_scale = 1.3
+
+[node name="WinSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_fpgry")
+max_distance = 1e+09
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -371.0
+offset_top = -190.0
+offset_right = 366.0
+offset_bottom = 202.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -28)
+texture = ExtResource("7_j1p8o")
+hframes = 23
+
+[connection signal="timeout" from="Player/JumpBuffer" to="Player" method="jumpBufferTimeout"]
+[connection signal="timeout" from="Player/CoyoteTime" to="Player" method="coyoteTimeout"]
+[connection signal="timeout" from="Player/JumpHeight" to="Player" method="jumpHeightTimeout"]
+
+[editable path="Player/Dust"]
