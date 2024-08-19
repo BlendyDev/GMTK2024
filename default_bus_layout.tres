@@ -1,11 +1,6 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://csfw6gwxjd4hk"]
-
-[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_biukk"]
-resource_name = "PitchShift"
+[gd_resource type="AudioBusLayout" format=3 uid="uid://csfw6gwxjd4hk"]
 
 [resource]
-bus/0/effect/0/effect = SubResource("AudioEffectPitchShift_biukk")
-bus/0/effect/0/enabled = true
 bus/1/name = &"Music"
 bus/1/solo = false
 bus/1/mute = false

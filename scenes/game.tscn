@@ -19,9 +19,10 @@ light_mode = 2
 scale = Vector2(0.691001, 0.728167)
 zoom = Vector2(1.5, 1.5)
 
-[node name="Player" parent="." instance=ExtResource("2_phniv")]
+[node name="Player" parent="." node_paths=PackedStringArray("lupa") instance=ExtResource("2_phniv")]
 position = Vector2(0, -26.99)
 collision_mask = 8
+lupa = NodePath("../Lupa")
 
 [node name="Lupa" parent="." node_paths=PackedStringArray("mainLevel", "scaledLevel", "altLevel", "invisLevel", "player") instance=ExtResource("2_wpv3h")]
 mainLevel = NodePath("../LevelHandler/Main")

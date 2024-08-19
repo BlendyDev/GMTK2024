@@ -10,10 +10,12 @@ extends CharacterBody2D
 @export var ACCELERATION := 700
 @export var DASH_ACCELERATION := 1200
 @export var DECELERATION := 1000
+@export var lupa: Lupa
 
 @onready var coyoteTimer = $CoyoteTime
 @onready var jumpBufferTimer = $JumpBuffer
 @onready var jumpHeightTimer = $JumpHeight
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")*1.5
 var shifting := false
@@ -22,10 +24,10 @@ var jumpBuffered := false
 var jumping := false
 var allowCutJump := true
 var queuedCutJump := false
+@onready var ogPos: Vector2 = self.global_position
+
 func _physics_process(delta):
-	if Input.is_action_just_pressed("SPACE"):
-		velocity = Vector2.ZERO
-		global_position = Vector2.ZERO
+	if Input.is_action_just_pressed("RESET"): resetLevel()
 	shifting = Input.is_action_pressed("SHIFT")
 	var direction := Input.get_axis("LEFT", "RIGHT")
 	handleJump(delta, direction)
@@ -42,6 +44,10 @@ func _physics_process(delta):
 		$AnimatedSprite2D.animation = "idle" if direction == 0 else "walk"
 	else:
 		velocity.y += gravity * delta
+		
+func resetLevel():
+	self.global_position = ogPos
+	lupa.mode = Lupa.ModeType.NONE
 func handleJump(delta, direction):
 	if Input.is_action_just_pressed("UP") and (is_on_floor() || coyote): jump()
 	if Input.is_action_pressed("UP") and jumpBuffered and is_on_floor(): jump()	
@@ -113,3 +119,4 @@ func jumpBufferTimeout():
 
 func jumpHeightTimeout():
 	allowCutJump = true 
+	

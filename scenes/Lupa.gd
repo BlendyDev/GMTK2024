@@ -16,8 +16,6 @@ enum ModeType{NONE, BIG_ZOOM, SCALE_ITEM, STATIC, ADJUSTABLE_ZOOM, DIFFERENT_LEV
 @export var minAdjustablePlayerZoom: = 0.1
 @export var maxAdjustablePlayerZoom: = 2
 
-@onready var pitchShiftEffect: AudioEffectPitchShift = AudioServer.get_bus_effect(0, 0)
-
 
 signal scaleLevelChanged(oldValue: float, newValue: float)
 
@@ -94,7 +92,7 @@ func handlePlayerScroll(delta):
 	
 func updatePlayerScale():
 	player.global_scale = Vector2(scalePlayer, scalePlayer) if insideLupa else Vector2.ONE
-	pitchShiftEffect.pitch_scale = float(scalePlayer+1)/float(2*scalePlayer) if scalePlayer > 1 else -pow(scalePlayer, 0.4)+2
+	AudioServer.playback_speed_scale = float(scalePlayer+1)/float(2*scalePlayer) if scalePlayer > 1 else -pow(scalePlayer, 0.4)+2
 
 func bodyEntered(body):
 	insideLupa = true
