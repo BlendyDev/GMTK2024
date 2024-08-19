@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dc04xwfoxy5is"]
+[gd_scene load_steps=3 format=3 uid="uid://dc04xwfoxy5is"]
+
+[ext_resource type="TileSet" uid="uid://b5vwlvpqxy1v1" path="res://misc/inverseSpikeTileset.tres" id="1_cl2ao"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_owqnw"]
 light_mode = 2
@@ -6,6 +8,6 @@ light_mode = 2
 [node name="ScaledSpikes" type="TileMap"]
 light_mask = 2
 material = SubResource("CanvasItemMaterial_owqnw")
+tile_set = ExtResource("1_cl2ao")
 format = 2
 layer_0/name = "Default"
-layer_0/tile_data = PackedInt32Array(-65535, 327680, 0)

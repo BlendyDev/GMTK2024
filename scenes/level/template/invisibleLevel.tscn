@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ko5wp7cljoee"]
 
-[ext_resource type="TileSet" uid="uid://bobrec0yeyxif" path="res://misc/tilesetInverse.tres" id="1_38knb"]
+[ext_resource type="TileSet" uid="uid://lrhrig6wmfi1" path="res://misc/inverseTileset.tres" id="1_yc7lv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sq0wt"]
 light_mode = 2
@@ -8,10 +8,9 @@ light_mode = 2
 [node name="InvisibleLevel" type="TileMap"]
 light_mask = 2
 material = SubResource("CanvasItemMaterial_sq0wt")
-tile_set = ExtResource("1_38knb")
+tile_set = ExtResource("1_yc7lv")
 format = 2
 layer_0/name = "Default"
-layer_0/tile_data = PackedInt32Array(65535, 0, 5, -196608, 0, 8, 0, 0, 5, 1, 0, 5)
 layer_1/name = "Background"
 layer_1/z_index = -50
 layer_1/tile_data = PackedInt32Array()
