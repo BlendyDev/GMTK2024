@@ -1,9 +1,8 @@
 extends Node
 
 
-func bodyShapeEntered(body_rid, body, body_shape_index, local_shape_index):
-	print("yayzers " + body.get_class())
-	if (body is TileMap): processTilemapCollision(body, body_rid)
+func _process(delta):
+	pass
 func processTilemapCollision(body: TileMap, rid):
 	print("tilemapey")
 	var tilemap := body as TileMap
@@ -11,5 +10,18 @@ func processTilemapCollision(body: TileMap, rid):
 	for i in tilemap.get_layers_count():
 		var tileData = tilemap.get_cell_tile_data(i, coords)
 		if !tileData is TileData: continue
-		var isDeathTile: bool = tileData.get_custom_data_by_layer_id(0)
-		if isDeathTile: print("DEATH")
+		
+#THIS WORKS (its the #7 with body) i tried usin
+func bodyShapeEntered(body_rid, body, body_shape_index, local_shape_index):
+	print("yayzers " + body.name)
+	if (body is TileMap): processTilemapCollision(body, body_rid)
+#also if instead of area2d i made terrainDetector a staticbody2d it also didnt work
+#with bodyShapeEntered
+func areaShapeEntered(area_rid, area, area_shape_index, local_shape_index):
+	#this also never worked
+	print("yayzers (area shap) " + area.name)
+
+
+#i can try add one thats not dynamic and test ig
+func areaEntered(area):
+	pass # Replace with function body.

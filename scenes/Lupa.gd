@@ -3,10 +3,15 @@ class_name Lupa
 enum ModeType{NONE, BIG_ZOOM, SCALE_ITEM, STATIC, ADJUSTABLE_ZOOM, DIFFERENT_LEVEL, INVISIBLE, SCALE_PLAYER}
 # Called when the node enters the scene tree for the first time.
 @export var mode: ModeType = ModeType.NONE
-@export var mainLevel: Node2D
-@export var scaledLevel: Node2D
-@export var altLevel: Node2D
-@export var invisLevel: Node2D
+@export var main: Node2D
+@export var scaled: Node2D
+@export var alt: Node2D
+@export var invis: Node2D
+
+@export var mainTilemap: TileMap
+
+@export var mainSpikesTilemap: TileMap
+
 @export var player: CharacterBody2D
 @onready var terrainDetector: Area2D = Util.findChild(player, "Area2D")
 
@@ -59,24 +64,31 @@ func switchLevel(switchingMode):
 	if mode != ModeType.SCALE_PLAYER:
 		player.scale = Vector2.ONE
 	if scalableMode():
-		Util.enableNode(scaledLevel)
+		Util.enableNode(scaled)
 		if (mode == ModeType.BIG_ZOOM): setScaleLevel(bigZoomLevel)
 		if (mode == ModeType.ADJUSTABLE_ZOOM && switchingMode): setScaleLevel(1.0)
 		if (mode == ModeType.SCALE_PLAYER && switchingMode): scalePlayer = 1.0
-	else: Util.disableNode(scaledLevel)
+	else: 
+		Util.disableNode(scaled)
 	
-	Util.enableNode(altLevel) if mode == ModeType.DIFFERENT_LEVEL else Util.disableNode(altLevel)
-	Util.enableNode(invisLevel) if mode == ModeType.INVISIBLE else Util.disableNode(invisLevel)
+	Util.enableNode(alt) if mode == ModeType.DIFFERENT_LEVEL else Util.disableNode(alt)
+	Util.enableNode(invis) if mode == ModeType.INVISIBLE else Util.disableNode(invis)
 	
-	var tileMap = Util.findChild(mainLevel, "TileMap") as TileMap
+
 	if modeUsesCustomTerrain():
-		tileMap.light_mask = tileMap.light_mask & ~(0b10)
+		mainTilemap.light_mask = mainTilemap.light_mask & ~(0b10)
+		mainSpikesTilemap.light_mask = mainSpikesTilemap.light_mask & ~(0b10)
 		player.collision_mask = player.collision_mask & ~(0b100)
 		player.collision_mask = player.collision_mask | 0b1000
+		terrainDetector.collision_mask = terrainDetector.collision_mask & ~(0b1000000)
+		terrainDetector.collision_mask = terrainDetector.collision_mask | 0b10000000
 	else:
-		tileMap.light_mask = tileMap.light_mask | 0b10
+		mainTilemap.light_mask = mainTilemap.light_mask | 0b10
+		mainSpikesTilemap.light_mask = mainSpikesTilemap.light_mask | 0b10
 		player.collision_mask = player.collision_mask | 0b100
 		player.collision_mask = player.collision_mask & ~(0b1000)
+		terrainDetector.collision_mask = terrainDetector.collision_mask | 0b1000000
+		terrainDetector.collision_mask = terrainDetector.collision_mask & ~(0b10000000)
 	if mode == ModeType.STATIC:
 		player.collision_mask = player.collision_mask | 0b100000
 	else:

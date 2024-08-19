@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends CollisionObject2D
 
 @export var lupa: Lupa
 @export var tilemap: TileMap
