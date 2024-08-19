@@ -1,11 +1,11 @@
 [gd_scene load_steps=26 format=3 uid="uid://bexhqp2l7qrs5"]
 
-[ext_resource type="Script" path="res://escris/ramiro.gd" id="1_c7fp5"]
-[ext_resource type="Texture2D" uid="uid://b1jvuxyhuihmp" path="res://esprais/ramiro.png" id="2_3vhbr"]
-[ext_resource type="Texture2D" uid="uid://b1ev2kvp23wki" path="res://esprais/sillyguy_idle-Sheet.png" id="3_ivj1f"]
-[ext_resource type="Texture2D" uid="uid://e3ilpa4i8eyi" path="res://esprais/globo.png" id="3_ta4p0"]
-[ext_resource type="Texture2D" uid="uid://cymuinisf1oai" path="res://esprais/ramiro_lupajuego-Sheet.png" id="3_tbjoy"]
-[ext_resource type="FontFile" uid="uid://c0abo2jc1txsi" path="res://fons/manaspace/manaspc.ttf" id="4_5v15f"]
+[ext_resource type="Script" path="res://scripts/ramiro.gd" id="1_c7fp5"]
+[ext_resource type="Texture2D" uid="uid://ptrdoqj1tc8x" path="res://sprites/ramiro.png" id="2_3vhbr"]
+[ext_resource type="Texture2D" uid="uid://bwtresq0u6y3j" path="res://sprites/sillyguy_idle-Sheet.png" id="3_ivj1f"]
+[ext_resource type="Texture2D" uid="uid://4bgodo4d3j2s" path="res://sprites/globo.png" id="3_ta4p0"]
+[ext_resource type="Texture2D" uid="uid://qe8cl7825m8e" path="res://sprites/ramiro_lupajuego-Sheet.png" id="3_tbjoy"]
+[ext_resource type="FontFile" uid="uid://cj2ccsjuqok0k" path="res://fonts/manaspc.ttf" id="4_5v15f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j253i"]
 size = Vector2(108, 69)

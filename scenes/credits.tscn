@@ -1,8 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://p50arhtfk7o0"]
+[gd_scene load_steps=8 format=3 uid="uid://p50arhtfk7o0"]
 
-[ext_resource type="Script" path="res://escris/credits.gd" id="1_4esu2"]
-[ext_resource type="FontFile" uid="uid://bnlevxmah4yae" path="res://fons/dpcomic/dpcomic.ttf" id="2_3tsac"]
-[ext_resource type="FontFile" uid="uid://c0abo2jc1txsi" path="res://fons/manaspace/manaspc.ttf" id="3_fo5wt"]
+[ext_resource type="Script" path="res://scripts/credits.gd" id="1_4esu2"]
 
 [sub_resource type="Animation" id="Animation_g85br"]
 length = 0.001
@@ -209,7 +207,6 @@ offset_bottom = 326.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("2_3tsac")
 text = "(GAME NAME),
 
 a game made in 4 days for the 2024 GMTK game jam   
@@ -231,7 +228,6 @@ offset_left = 492.0
 offset_top = 290.0
 offset_right = 575.0
 offset_bottom = 321.0
-theme_override_fonts/font = ExtResource("3_fo5wt")
 text = "go back"
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]

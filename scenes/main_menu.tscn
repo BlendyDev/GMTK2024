@@ -1,10 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dihk0w3k7q1ut"]
+[gd_scene load_steps=8 format=3 uid="uid://dihk0w3k7q1ut"]
 
-[ext_resource type="Script" path="res://escris/main_menu.gd" id="1_vi7p1"]
-[ext_resource type="FontFile" uid="uid://ubdcnnv8i3pe" path="res://fons/edit-undo/edunline.ttf" id="2_5qpog"]
-[ext_resource type="FontFile" uid="uid://5bcjifv7h7js" path="res://fons/8-bit-limit/8bitlimo.ttf" id="2_rj88h"]
-[ext_resource type="FontFile" uid="uid://c232i1bw3o2vy" path="res://fons/8-bit-limit/8bitlim.ttf" id="3_n46q2"]
-[ext_resource type="FontFile" uid="uid://i47bfr31fdi2" path="res://fons/bulky-pixels/bulkypixels/BULKYPIX.TTF" id="5_vl13p"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_vi7p1"]
 
 [sub_resource type="Animation" id="Animation_j8whl"]
 length = 0.001
@@ -229,12 +225,10 @@ theme_override_constants/separation = 25
 
 [node name="Yes" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_rj88h")
 text = "yay"
 
 [node name="No" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_rj88h")
 text = "nay"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -256,25 +250,21 @@ layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5qpog")
 text = "Plei"
 flat = true
 
 [node name="HowToPlay" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5qpog")
 text = "Ostions"
 flat = true
 
 [node name="Credits" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5qpog")
 text = "Credis"
 flat = true
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5qpog")
 text = "Kwit"
 flat = true
 
@@ -291,7 +281,6 @@ offset_right = 30.0
 offset_bottom = -61.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_n46q2")
 text = "u sure  "
 
 [node name="?" type="Label" parent="."]
@@ -301,14 +290,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 23.0
-offset_top = -84.0
-offset_right = 31.0
-offset_bottom = -61.0
+offset_left = -640.0
+offset_top = -720.0
+offset_right = -632.0
+offset_bottom = -697.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("3_n46q2")
 theme_override_font_sizes/font_size = 16
 text = "?"
 
@@ -349,7 +337,6 @@ offset_right = 85.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("5_vl13p")
 text = "PLEASE COME BACK!"
 
 [connection signal="mouse_entered" from="HBoxContainer/Yes" to="." method="_on_yes_mouse_entered"]

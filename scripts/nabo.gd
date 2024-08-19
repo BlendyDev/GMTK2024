@@ -12,7 +12,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if $TalkingTime.is_stopped():
-		Sounds.stopratvoice()
+		Sounds.stopnabovoice()
 	pass
 	#if Global.playerTurtle:
 		
@@ -60,7 +60,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_talking_time_timeout() -> void:
-	Sounds.stopratvoice()
+	Sounds.stopnabovoice()
 	$AnimatedSprite2D.animation = "idle"
 	stoppedTalking = true
 
@@ -70,14 +70,14 @@ func _on_body_exited(body: Node2D) -> void:
 	$AnimationPlayer.play("fadeout")
 	$AnimationPlayer2.stop()
 	$AnimatedSprite2D.animation = "idle"
-	Sounds.stopratvoice()
+	Sounds.stopnabovoice()
 	$TalkingTime.stop()
 	Sounds.hidedialogue()
 	
 
 
 func _on_sound_time_timeout() -> void:
-	Sounds.ratvoice()
+	Sounds.nabovoice()
 	$SoundTime.start()
 
 

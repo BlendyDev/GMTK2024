@@ -1,10 +1,10 @@
 [gd_scene load_steps=29 format=3 uid="uid://cfxu1avgtg8ep"]
 
-[ext_resource type="Script" path="res://escris/turtle.gd" id="1_gb15w"]
-[ext_resource type="Texture2D" uid="uid://bnsmr48bseg5e" path="res://esprais/Testudin-Sheet.png" id="2_hew0m"]
-[ext_resource type="Texture2D" uid="uid://ikurvxomucwt" path="res://esprais/turtle_idle-Sheet.png" id="2_yh0aq"]
-[ext_resource type="Texture2D" uid="uid://e3ilpa4i8eyi" path="res://esprais/globo.png" id="3_0d4tn"]
-[ext_resource type="FontFile" uid="uid://c0abo2jc1txsi" path="res://fons/manaspace/manaspc.ttf" id="4_qxco3"]
+[ext_resource type="Script" path="res://scripts/turtle.gd" id="1_gb15w"]
+[ext_resource type="Texture2D" uid="uid://cbhrm8ofu7wxk" path="res://sprites/Testudin-Sheet.png" id="2_hew0m"]
+[ext_resource type="Texture2D" uid="uid://bu57xrbkeqnxy" path="res://sprites/turtle_idle-Sheet.png" id="2_yh0aq"]
+[ext_resource type="Texture2D" uid="uid://4bgodo4d3j2s" path="res://sprites/globo.png" id="3_0d4tn"]
+[ext_resource type="FontFile" uid="uid://cj2ccsjuqok0k" path="res://fonts/manaspc.ttf" id="4_qxco3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j253i"]
 size = Vector2(108, 69)
