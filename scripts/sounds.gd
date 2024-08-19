@@ -52,7 +52,31 @@ func uiquityes():
 	
 func newdialogue():
 	$SFX/NewDialogue.play()
-		
+
+func hidedialogue():
+	$SFX/HideDialogue.play()
+
+func lupasound1():
+	$SFX/LupaSound1.play()
+func lupasound2():
+	$SFX/LupaSound2.play()
+func lupasound3():
+	$SFX/LupaSound3.play()
+func lupasound4():
+	$SFX/LupaSound4.play()
+func lupasound5():
+	$SFX/LupaSound5.play()
+func lupasound6():
+	$SFX/LupaSound6.play()
+func lupasound7():
+	$SFX/LupaSound7.play()
+func lupasound8():
+	$SFX/LupaSound8.play()
+
+func deathsound():
+	$Voices/DeathSound.play()
+	
+	
 #VOICES
 
 func jumpvoice():

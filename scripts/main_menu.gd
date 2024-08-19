@@ -28,7 +28,7 @@ func _on_options_mouse_entered() -> void:
 
 func _on_credits_pressed() -> void:
 	Sounds.uiclick()
-	get_tree().change_scene_to_file("res://senas/credits.tscn")
+	get_tree().change_scene_to_file("res://scenes/credits.tscn")
 
 func _on_credits_mouse_entered() -> void:
 	Sounds.uihover()
