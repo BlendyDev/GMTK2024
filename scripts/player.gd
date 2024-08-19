@@ -38,6 +38,7 @@ func _physics_process(delta):
 		coyoteTimer.start()
 	if !was_on_floor && is_on_floor():
 		Sounds.land()
+		$AnimationPlayer.play("land")
 		$Dust/AnimationPlayer.play("dust")
 	if is_on_floor():
 		$AnimatedSprite2D.animation = "idle" if direction == 0 else "walk"
@@ -76,6 +77,7 @@ func jump():
 	jumpBuffered = false
 	Sounds.jumpvoice()
 	Sounds.jumpsound()
+	$AnimationPlayer.play("jump")
 	velocity.y = JUMP_VELOCITY * self.global_scale.x
 func max_speed(dash):
 	if (dash):

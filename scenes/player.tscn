@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://6guy5rxqs3n2"]
+[gd_scene load_steps=33 format=3 uid="uid://6guy5rxqs3n2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lbma7"]
 [ext_resource type="Texture2D" uid="uid://brcicxht2alae" path="res://sprites/player/idle.png" id="2_2amsf"]
@@ -165,21 +165,6 @@ stream_0/weight = 1.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6w6c7"]
 size = Vector2(16, 3)
 
-[sub_resource type="Animation" id="Animation_p0iu7"]
-resource_name = "jump"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0.8, 1), Vector2(1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_aef31"]
 length = 0.001
 tracks/0/type = "value"
@@ -195,10 +180,45 @@ tracks/0/keys = {
 "values": [Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_p0iu7"]
+resource_name = "jump"
+length = 0.2
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.15, 0.841), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8y5yt"]
+resource_name = "land"
+length = 0.2
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.35, 0.775), Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kbxdd"]
 _data = {
 "RESET": SubResource("Animation_aef31"),
-"jump": SubResource("Animation_p0iu7")
+"jump": SubResource("Animation_p0iu7"),
+"land": SubResource("Animation_8y5yt")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -250,7 +270,6 @@ shape = SubResource("RectangleShape2D_6w6c7")
 libraries = {
 "": SubResource("AnimationLibrary_kbxdd")
 }
-speed_scale = 5.0
 
 [connection signal="timeout" from="JumpBuffer" to="." method="jumpBufferTimeout"]
 [connection signal="timeout" from="CoyoteTime" to="." method="coyoteTimeout"]
