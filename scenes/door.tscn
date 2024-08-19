@@ -283,11 +283,10 @@ one_shot = true
 position = Vector2(-85.5, 6)
 shape = SubResource("RectangleShape2D_q3yst")
 
-[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("lupa")]
+[node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(10, 27)
 collision_mask = 8
 script = ExtResource("3_y2eov")
-lupa = NodePath("")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(1, 2)
