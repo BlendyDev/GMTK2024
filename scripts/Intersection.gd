@@ -13,7 +13,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	if (lupa.modeUsesCustomTerrain()):
 		createTiledIntersection() if inverseMode else createTiledDifference()
 	else: createColliders([])

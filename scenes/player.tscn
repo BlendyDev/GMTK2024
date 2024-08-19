@@ -213,7 +213,6 @@ shape = SubResource("RectangleShape2D_6w6c7")
 [connection signal="timeout" from="JumpBuffer" to="." method="jumpBufferTimeout"]
 [connection signal="timeout" from="CoyoteTime" to="." method="coyoteTimeout"]
 [connection signal="timeout" from="JumpHeight" to="." method="jumpHeightTimeout"]
-[connection signal="area_entered" from="TerrainDetector" to="TerrainDetector" method="areaEntered"]
 [connection signal="area_shape_entered" from="TerrainDetector" to="TerrainDetector" method="areaShapeEntered"]
 [connection signal="body_shape_entered" from="TerrainDetector" to="TerrainDetector" method="bodyShapeEntered"]
 
