@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 
 func _on_back_pressed() -> void:
 	Sounds.uiclick()
-	get_tree().change_scene_to_file("res://senas/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 
 func _on_back_mouse_entered() -> void:

@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv8j3fv0iasqs"]
+
+[ext_resource type="Script" path="res://scripts/options.gd" id="1_tfs5t"]
+
+[node name="Options" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tfs5t")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -22.0
+offset_right = 20.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "master volume"
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "music volume"
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "sfx volume"
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "voices volume"
+
+[node name="PlaySFX" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "play sfx"
+
+[node name="PlayVoice" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "play voice"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "back"
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "resume"
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/PlaySFX" to="." method="_on_resume_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PlaySFX" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/PlayVoice" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayVoice" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_main_menu_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Resume" to="." method="_on_resume_pressed"]
