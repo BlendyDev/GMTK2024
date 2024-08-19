@@ -1,9 +1,6 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bobrec0yeyxif"]
-
-[ext_resource type="Texture2D" uid="uid://dinfx61ji1gwu" path="res://sprites/tileset1.png" id="1_yfqce"]
+[gd_resource type="TileSet" load_steps=2 format=3 uid="uid://bobrec0yeyxif"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0h2g5"]
-texture = ExtResource("1_yfqce")
 margins = Vector2i(0, 11)
 texture_region_size = Vector2i(23, 23)
 0:0/0 = 0
@@ -178,15 +175,12 @@ texture_region_size = Vector2i(23, 23)
 6:4/0 = 0
 6:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:4/0/physics_layer_0/angular_velocity = 0.0
-5:5/size_in_atlas = Vector2i(4, 4)
 5:5/0 = 0
 5:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:5/0/physics_layer_0/angular_velocity = 0.0
-6:2/size_in_atlas = Vector2i(1, 2)
 6:2/0 = 0
 6:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:2/0/physics_layer_0/angular_velocity = 0.0
-5:2/size_in_atlas = Vector2i(1, 2)
 5:2/0 = 0
 5:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:2/0/physics_layer_0/angular_velocity = 0.0
