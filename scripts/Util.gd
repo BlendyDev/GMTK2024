@@ -9,7 +9,7 @@ static func findChild (node: Node, clazz: String) -> Node:
 static func disableNode (node: Node2D):
 	node.visible = false
 	node.process_mode = Node.PROCESS_MODE_DISABLED
-static func enableMode (node: Node2D):
+static func enableNode (node: Node2D):
 	node.visible = true
 	node.process_mode = Node.PROCESS_MODE_INHERIT
 	

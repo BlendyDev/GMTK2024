@@ -68,7 +68,7 @@ func jump():
 	jumpBuffered = false
 	Sounds.jumpvoice()
 	Sounds.jumpsound()
-	velocity.y = JUMP_VELOCITY
+	velocity.y = JUMP_VELOCITY * self.global_scale.x
 func max_speed(dash):
 	if (dash):
 		if (is_on_floor()): return MAX_DASH_SPEED
@@ -86,15 +86,16 @@ func handleMoving(direction, delta):
 		if (!$Steps.playing): $Steps.play() 
 	if $Steps.playing && !is_on_floor(): $Steps.stream_paused = true
 	$AnimatedSprite2D.flip_h = direction == -1 
+	var sizeVelMultiplier = self.global_scale.x
 	if shifting:
 		$Steps.pitch_scale = 1.3
-		velocity.x = max(abs(velocity.x), max_speed(false)) * direction
-		velocity.x = move_toward(velocity.x, direction * max_speed(true), accel(direction) * delta)
+		velocity.x = max_speed(true) * sizeVelMultiplier * direction
+		velocity.x = move_toward(velocity.x, direction * max_speed(true) * sizeVelMultiplier, accel(direction) * delta)
 		$AnimatedSprite2D.rotation = direction * 0.1308996939
 		$AnimatedSprite2D.speed_scale = 1.5
 	else:
 		$Steps.pitch_scale = 1.0
-		velocity.x = max(abs(velocity.x), max_speed(false)) * direction
+		velocity.x = max_speed(false) * sizeVelMultiplier * direction
 		$AnimatedSprite2D.rotation = 0
 		$AnimatedSprite2D.speed_scale = 1
 

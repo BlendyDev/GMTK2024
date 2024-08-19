@@ -45,11 +45,11 @@ func getAdjustedPolygons(center: Vector2):
 	var polygons := offsetTiles(tiles)
 	return polygons
 	
-##Returns tile coordinates near a tile based on tileRadius
-func getNearbyTiles(tile, tileRadius) -> Array[Vector2]:
+##Returns tile coordinates near a tile based on radius
+func getNearbyTiles(tile, radius) -> Array[Vector2]:
 	var tiles: Array[Vector2] = []
-	for a in range(-tileRadius, tileRadius):
-		for b in range(-tileRadius,tileRadius):
+	for a in range(-radius, radius):
+		for b in range(-radius,radius):
 			var currentTile = Vector2(a + tile.x,b + tile.y)
 			tiles.append(currentTile)
 	return tiles
@@ -80,11 +80,31 @@ func getTileCollision(tile) -> PackedVector2Array:
 	return polygon
 
 ##Lazily create enough children to assign colliders to
-func createColliders(polygons) -> void:
+func createColliders(unsanitizedPolygons) -> void:
+	var polygons = sanitizePolygons(unsanitizedPolygons)
 	if (polygons.size() > get_child_count()):
 		instantiateChildren(polygons.size() - get_child_count())
 	for i in range(0, get_child_count()):
+		if (polygons.size() > i):
+			if (Geometry2D.triangulate_polygon(polygons[i]).is_empty()): print("wee woo")
+			#else: push_warning("fine")
 		get_child(i).polygon = polygons[i] if polygons.size() > i else PackedVector2Array()
+		
+func sanitizePolygons(polygons):
+	if (polygons.is_empty()): return polygons
+	var sanitizedPolygons := []
+	for polygon in polygons:
+		if polygon.size() < 3: 
+			print("wee woo")
+			continue
+		if Geometry2D.triangulate_polygon(polygon).is_empty():
+			print("Failed to triangulate polygon. Dumping polygon data")
+			for vert in polygon:
+				print ("Vert: " + Util.parseVector(vert))
+			print("Skipping...")
+			continue
+		sanitizedPolygons.append(polygon)
+	return sanitizedPolygons
 
 ##Add num new children to intersectionRes
 func instantiateChildren(num) -> void:

@@ -1,29 +1,29 @@
 [gd_scene load_steps=21 format=3 uid="uid://0mvoctdun5rx"]
 
-[ext_resource type="Script" path="res://scripts/sounds.gd" id="1_8udjt"]
-[ext_resource type="AudioStream" uid="uid://c3v2i5okqal5t" path="res://sfx/523771__matrixxx__retro-legendary-jump.wav" id="2_frwjk"]
-[ext_resource type="AudioStream" uid="uid://c4cj5yxgdbleu" path="res://music/tutorialwarioostlooptemp.wav" id="2_th7di"]
-[ext_resource type="AudioStream" uid="uid://diommdpxne2rc" path="res://sfx/jumpvoice1.wav" id="2_vshca"]
-[ext_resource type="AudioStream" uid="uid://davtijp4pc6sx" path="res://sfx/jumpvoice2.wav" id="3_yop2t"]
-[ext_resource type="AudioStream" uid="uid://c68nur4k7erks" path="res://sfx/jumpvoice3.wav" id="4_g3pb2"]
-[ext_resource type="AudioStream" uid="uid://mxyb1fxpmkfd" path="res://sfx/landsfx2.wav" id="4_tm0no"]
-[ext_resource type="AudioStream" uid="uid://cj7jwfypu0fo4" path="res://sfx/jumpvoice4.wav" id="5_osvdv"]
-[ext_resource type="AudioStream" uid="uid://bahstluaa5x5t" path="res://sfx/jumpvoice5.wav" id="6_0t56l"]
-[ext_resource type="AudioStream" uid="uid://w3ao17m2el0b" path="res://sfx/jumpvoice6.wav" id="7_fdil8"]
-[ext_resource type="AudioStream" uid="uid://bei35cpmna40q" path="res://sfx/jumpvoice7.wav" id="8_ngbs2"]
+[ext_resource type="Script" path="res://scripts/sounds.gd" id="1_danjj"]
+[ext_resource type="AudioStream" uid="uid://c4cj5yxgdbleu" path="res://music/tutorialwarioostlooptemp.wav" id="2_qppkm"]
+[ext_resource type="AudioStream" uid="uid://c3v2i5okqal5t" path="res://sfx/523771__matrixxx__retro-legendary-jump.wav" id="3_cxon0"]
+[ext_resource type="AudioStream" uid="uid://mxyb1fxpmkfd" path="res://sfx/landsfx2.wav" id="4_dsci2"]
+[ext_resource type="AudioStream" uid="uid://diommdpxne2rc" path="res://sfx/jumpvoice1.wav" id="5_5qti3"]
+[ext_resource type="AudioStream" uid="uid://davtijp4pc6sx" path="res://sfx/jumpvoice2.wav" id="6_o2rc3"]
+[ext_resource type="AudioStream" uid="uid://c68nur4k7erks" path="res://sfx/jumpvoice3.wav" id="7_uqqhj"]
+[ext_resource type="AudioStream" uid="uid://cj7jwfypu0fo4" path="res://sfx/jumpvoice4.wav" id="8_gfsyr"]
+[ext_resource type="AudioStream" uid="uid://bahstluaa5x5t" path="res://sfx/jumpvoice5.wav" id="9_mnhdy"]
+[ext_resource type="AudioStream" uid="uid://w3ao17m2el0b" path="res://sfx/jumpvoice6.wav" id="10_87swh"]
+[ext_resource type="AudioStream" uid="uid://bei35cpmna40q" path="res://sfx/jumpvoice7.wav" id="11_mm3ke"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qtosk"]
 random_pitch = 1.1
 random_volume_offset_db = 1.0
 streams_count = 1
-stream_0/stream = ExtResource("2_frwjk")
+stream_0/stream = ExtResource("3_cxon0")
 stream_0/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qo3ch"]
 random_pitch = 1.15
 random_volume_offset_db = 1.0
 streams_count = 1
-stream_0/stream = ExtResource("4_tm0no")
+stream_0/stream = ExtResource("4_dsci2")
 stream_0/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2u61d"]
@@ -59,19 +59,19 @@ stream_0/weight = 0.0
 random_pitch = 1.1
 random_volume_offset_db = 1.0
 streams_count = 7
-stream_0/stream = ExtResource("2_vshca")
+stream_0/stream = ExtResource("5_5qti3")
 stream_0/weight = 10.0
-stream_1/stream = ExtResource("3_yop2t")
+stream_1/stream = ExtResource("6_o2rc3")
 stream_1/weight = 5.0
-stream_2/stream = ExtResource("4_g3pb2")
+stream_2/stream = ExtResource("7_uqqhj")
 stream_2/weight = 7.0
-stream_3/stream = ExtResource("5_osvdv")
+stream_3/stream = ExtResource("8_gfsyr")
 stream_3/weight = 6.0
-stream_4/stream = ExtResource("6_0t56l")
+stream_4/stream = ExtResource("9_mnhdy")
 stream_4/weight = 9.0
-stream_5/stream = ExtResource("7_fdil8")
+stream_5/stream = ExtResource("10_87swh")
 stream_5/weight = 3.0
-stream_6/stream = ExtResource("8_ngbs2")
+stream_6/stream = ExtResource("11_mm3ke")
 stream_6/weight = 2.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a8rfd"]
@@ -80,7 +80,7 @@ streams_count = 1
 stream_0/weight = 0.0
 
 [node name="Sounds" type="Node2D"]
-script = ExtResource("1_8udjt")
+script = ExtResource("1_danjj")
 
 [node name="Music" type="Node" parent="."]
 
@@ -91,7 +91,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="TutorialMusic" type="AudioStreamPlayer2D" parent="Music"]
-stream = ExtResource("2_th7di")
+stream = ExtResource("2_qppkm")
 volume_db = -2.0
 autoplay = true
 max_distance = 2.09803e+07

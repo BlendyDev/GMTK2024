@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Sounds="*res://tmp/sounds.tscn"
+Sounds="*res://scenes/sounds.tscn"
 
 [display]
 
@@ -117,6 +117,8 @@ TAB={
 2d_physics/layer_2="lupa"
 2d_physics/layer_3="level"
 2d_physics/layer_4="walkableIntersections"
+2d_physics/layer_5="inverseLevel"
+2d_physics/layer_6="lupaHitbox"
 
 [rendering]
 
