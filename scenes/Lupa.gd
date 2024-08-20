@@ -50,7 +50,7 @@ func scalableMode() -> bool:
 func handleModeSwitch() -> bool:
 	var oldMode = mode
 	if (Input.is_action_just_pressed("TAB")):
-		mode = max((mode + 1) % 8, 1)
+		mode = nextUnlockedMode()
 	if (Input.is_action_just_pressed("1")): mode = ModeType.BIG_ZOOM
 	if (Input.is_action_just_pressed("2")): mode = ModeType.SCALE_ITEM
 	if (Input.is_action_just_pressed("3")): mode = ModeType.STATIC
@@ -59,6 +59,15 @@ func handleModeSwitch() -> bool:
 	if (Input.is_action_just_pressed("6")): mode = ModeType.INVISIBLE
 	if (Input.is_action_just_pressed("7")): mode = ModeType.SCALE_PLAYER
 	return oldMode != mode
+
+func nextUnlockedMode():
+	var currentMode = mode
+	for i in range(1, 8):
+		var testMode = (currentMode + i) % 8
+		if GemsUIs.unlockedGems.has(testMode): return testMode
+		if testMode == 0: return testMode
+		
+	return null
 
 func switchLevel(switchingMode):
 	if mode != ModeType.SCALE_PLAYER:

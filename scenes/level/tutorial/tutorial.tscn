@@ -259,7 +259,6 @@ light_mode = 2
 [node name="Game" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(130, 217)
 zoom = Vector2(2, 2)
 script = ExtResource("1_35dlq")
 player = NodePath("../Player")

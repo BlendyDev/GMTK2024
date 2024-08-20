@@ -10,6 +10,7 @@ class_name Player
 @export var DASH_ACCELERATION := 1200
 @export var DECELERATION := 1000
 @export var lupa: Lupa
+@export var camera: Cam
 
 @onready var coyoteTimer = $CoyoteTime
 @onready var jumpBufferTimer = $JumpBuffer
@@ -51,6 +52,7 @@ func resetLevel():
 	lupa.mode = Lupa.ModeType.NONE
 	lupa.scalePlayer = 1.0
 	lupa.scaleLevel = 1.0
+	camera.reset()
 func handleJump(delta, direction):
 	if Input.is_action_just_pressed("UP") and (is_on_floor() || coyote): jump()
 	if Input.is_action_pressed("UP") and jumpBuffered and is_on_floor(): jump()	
@@ -62,13 +64,13 @@ func handleJump(delta, direction):
 		if velocity.y >= 0: jumping = false
 		elif Input.is_action_just_released("UP") || queuedCutJump:
 			if allowCutJump:
+				queuedCutJump = false
 				jumping = false
 				velocity.y = 0
 			else:
 				queuedCutJump = true
 				pass
-			
-	
+
 func jump():
 	jumping = true
 	allowCutJump = false

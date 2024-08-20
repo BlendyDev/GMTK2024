@@ -1,8 +1,11 @@
 extends Camera2D
+class_name Cam
 
 @export var player: CharacterBody2D
 @export var wrapSpeed: = 600.0
 @export var accel := 1500.0
+var initialOffset := self.offset
+
 var currentX: float = 0
 var currentY: float = 0
 var currentScreenX :int
@@ -59,3 +62,11 @@ func updateY():
 	currentScreenY = floor(self.global_position.y + self.offset.y / widthY)
 	currentY = (self.global_position.y + self.offset.y)
 	
+func reset():
+	self.offset = initialOffset
+	movingX = 0
+	progressX = 0
+	movingY = 0
+	progressY = 0
+	updateX()
+	updateY()

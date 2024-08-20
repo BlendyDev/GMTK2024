@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scripts/Intersection.gd" id="4_hbu4j"]
 [ext_resource type="TileSet" uid="uid://b5aeklwp8y8qw" path="res://misc/spikeTileset.tres" id="5_hc724"]
 [ext_resource type="Script" path="res://tmp/ScaledLevel.gd" id="6_0slx7"]
-[ext_resource type="TileSet" uid="uid://lrhrig6wmfi1" path="res://misc/inverseTileset.tres" id="7_v71ko"]
+[ext_resource type="TileSet" uid="uid://d338qiepy3cw8" path="res://misc/inverseTileset.tres" id="7_v71ko"]
 [ext_resource type="TileSet" uid="uid://b5vwlvpqxy1v1" path="res://misc/inverseSpikeTileset.tres" id="8_63nr2"]
 [ext_resource type="Script" path="res://scripts/OnOffManager.gd" id="9_47xbg"]
 [ext_resource type="PackedScene" uid="uid://cjl2pheuty3td" path="res://scenes/orangeBlock.tscn" id="11_0t2yj"]
@@ -45,11 +45,12 @@ zoom = Vector2(2, 2)
 script = ExtResource("1_sq10t")
 player = NodePath("../Player")
 
-[node name="Player" parent="." node_paths=PackedStringArray("lupa") instance=ExtResource("1_q4w8s")]
+[node name="Player" parent="." node_paths=PackedStringArray("lupa", "camera") instance=ExtResource("1_q4w8s")]
 position = Vector2(0, -26.99)
 collision_layer = 1
 collision_mask = 8
 lupa = NodePath("../Lupa")
+camera = NodePath("../Camera2D")
 
 [node name="Lupa" parent="." node_paths=PackedStringArray("main", "scaled", "alt", "invis", "mainTilemap", "mainSpikesTilemap", "player") instance=ExtResource("2_684ba")]
 main = NodePath("../LevelHandler/Main")
