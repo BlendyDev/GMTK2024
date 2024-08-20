@@ -11,10 +11,12 @@ func processTilemapCollision(body: TileMap, rid):
 		
 func bodyShapeEntered(body_rid, body, body_shape_index, local_shape_index):
 	if (body is TileMap && (body as TileMap).name.to_lower().contains("spike")):
+		print("death")
 		handleDeath()
 	
 func areaShapeEntered(area_rid, area, area_shape_index, local_shape_index):
 	if (area is Area2D && (area as Area2D).name.to_lower().contains("spike")):
+		print("death")
 		handleDeath()
 
 func handleDeath():

@@ -11,7 +11,6 @@ class_name Player
 @export var DECELERATION := 1000
 @export var lupa: Lupa
 @export var camera: Cam
-
 @onready var coyoteTimer = $CoyoteTime
 @onready var jumpBufferTimer = $JumpBuffer
 @onready var jumpHeightTimer = $JumpHeight
