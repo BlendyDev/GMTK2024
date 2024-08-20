@@ -273,8 +273,6 @@ _data = {
 
 [node name="Turtle" type="Area2D"]
 position = Vector2(998, 149)
-collision_layer = 3
-collision_mask = 3
 script = ExtResource("1_gb15w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -298,11 +296,12 @@ texture = ExtResource("3_0d4tn")
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 16.0
 offset_top = -96.0
-offset_right = 141.0
-offset_bottom = -37.0
+offset_right = 160.0
+offset_bottom = -12.0
+scale = Vector2(0.9, 0.9)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_qxco3")
-theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/normal_font_size = 12
 text = "USE THE WASD KEYS TO MOVE AROUND. I MEAN YOU'VE USED THAT ALREADY HUH. AHEM. I'M USELESS."
 fit_content = true
 visible_characters = 0

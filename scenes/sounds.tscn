@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://0mvoctdun5rx"]
+[gd_scene load_steps=45 format=3 uid="uid://0mvoctdun5rx"]
 
 [ext_resource type="Script" path="res://scripts/sounds.gd" id="1_danjj"]
 [ext_resource type="AudioStream" uid="uid://c4cj5yxgdbleu" path="res://music/tutorialwarioostlooptemp.wav" id="2_qppkm"]
@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://dtwlge0r23121" path="res://sfx/uino.wav" id="18_pvt5u"]
 [ext_resource type="AudioStream" uid="uid://dwesxso35katl" path="res://sfx/turtlevoice.wav" id="19_jyr6t"]
 [ext_resource type="AudioStream" uid="uid://80dmc53rdxe5" path="res://sfx/ramirovoice.wav" id="20_a77im"]
+[ext_resource type="AudioStream" uid="uid://chglcenqgaveq" path="res://sfx/blink2.wav" id="20_cqwyx"]
 [ext_resource type="AudioStream" uid="uid://wtjqx2u4ngnh" path="res://sfx/nabovoice.wav" id="21_vm76b"]
 [ext_resource type="AudioStream" uid="uid://d3gxio3spipvb" path="res://sfx/deathsound.wav" id="27_8ej2w"]
 
@@ -149,6 +150,7 @@ bus = &"Music"
 stream = SubResource("AudioStreamRandomizer_qtosk")
 volume_db = -16.0
 pitch_scale = 0.58
+max_distance = 1e+16
 panning_strength = 0.0
 bus = &"SFX"
 
@@ -197,6 +199,7 @@ bus = &"SFX"
 
 [node name="NewDialogue" type="AudioStreamPlayer2D" parent="SFX"]
 stream = SubResource("AudioStreamRandomizer_5u5ta")
+max_distance = 9.22337e+18
 panning_strength = 0.0
 bus = &"SFX"
 
@@ -246,6 +249,12 @@ stream = ExtResource("18_aejxh")
 max_distance = 1e+10
 bus = &"SFX"
 
+[node name="Blink" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("20_cqwyx")
+max_distance = 1e+17
+panning_strength = 0.0
+bus = &"SFX"
+
 [node name="Voices" type="Node" parent="."]
 
 [node name="JumpVoice" type="AudioStreamPlayer2D" parent="Voices"]
@@ -277,13 +286,15 @@ bus = &"Voices"
 
 [node name="RatVoice" type="AudioStreamPlayer2D" parent="Voices"]
 stream = SubResource("AudioStreamRandomizer_t8m7s")
-volume_db = 4.0
+volume_db = -4.0
+pitch_scale = 1.25
 max_distance = 1e+09
 panning_strength = 0.0
 bus = &"Voices"
 
 [node name="NaboVoice" type="AudioStreamPlayer2D" parent="Voices"]
 stream = SubResource("AudioStreamRandomizer_t8m7s")
+volume_db = -6.0
 max_distance = 1e+09
 panning_strength = 0.0
 bus = &"Voices"

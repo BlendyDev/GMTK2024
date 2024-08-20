@@ -124,3 +124,6 @@ func jumpBufferTimeout():
 func jumpHeightTimeout():
 	allowCutJump = true 
 	
+
+
+

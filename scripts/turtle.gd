@@ -3,6 +3,7 @@ var stoppedTalking = false
 var talking = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Sounds.stopturtlevoice()
 	$RichTextLabel.visible_ratio = 0
 	$TextureRect.modulate = "ffffff00"
 	$RichTextLabel.modulate = "ffffff00"

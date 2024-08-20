@@ -1,0 +1,533 @@
+[gd_scene load_steps=56 format=3 uid="uid://gmvcn505pthw"]
+
+[ext_resource type="Script" path="res://scripts/camera.gd" id="1_35dlq"]
+[ext_resource type="PackedScene" uid="uid://cg154e3cwcjlr" path="res://scenes/nabo.tscn" id="2_63ibo"]
+[ext_resource type="PackedScene" uid="uid://cfxu1avgtg8ep" path="res://scenes/turtle.tscn" id="2_ikfup"]
+[ext_resource type="PackedScene" uid="uid://b5tdw8pl3e3wk" path="res://scenes/rat.tscn" id="2_iqgoo"]
+[ext_resource type="Script" path="res://scenes/Lupa.gd" id="2_oo63b"]
+[ext_resource type="PackedScene" uid="uid://rbxwo6tm8may" path="res://scenes/door.tscn" id="2_s51ea"]
+[ext_resource type="Texture2D" uid="uid://cwk7w6udwbccn" path="res://sprites/lupa.png" id="3_5pn54"]
+[ext_resource type="PackedScene" uid="uid://dpyt0d7rtyl5q" path="res://scenes/level/tutorial/level.tscn" id="3_sdsex"]
+[ext_resource type="PackedScene" uid="uid://bexhqp2l7qrs5" path="res://scenes/ramiro.tscn" id="4_8l1hf"]
+[ext_resource type="Script" path="res://scripts/Intersection.gd" id="4_10di6"]
+[ext_resource type="Texture2D" uid="uid://bsgfl5qneehqb" path="res://sprites/lupaMask.png" id="4_25cno"]
+[ext_resource type="Texture2D" uid="uid://buhy3lr105ut7" path="res://sprites/inverseLupaMask.png" id="5_fejvq"]
+[ext_resource type="TileSet" uid="uid://b5aeklwp8y8qw" path="res://misc/spikeTileset.tres" id="5_itr7s"]
+[ext_resource type="Script" path="res://tmp/ScaledLevel.gd" id="6_gy86c"]
+[ext_resource type="PackedScene" uid="uid://dmrb4fssxeks1" path="res://scenes/level/tutorial/scaledLevel.tscn" id="7_gb8ua"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="7_uyeo7"]
+[ext_resource type="Texture2D" uid="uid://brcicxht2alae" path="res://sprites/player/idle.png" id="8_7hug2"]
+[ext_resource type="TileSet" uid="uid://b5vwlvpqxy1v1" path="res://misc/inverseSpikeTileset.tres" id="8_pn5fs"]
+[ext_resource type="Texture2D" uid="uid://d2cad3qjvrqkc" path="res://sprites/player/walk.png" id="9_4qbfn"]
+[ext_resource type="TileSet" uid="uid://d338qiepy3cw8" path="res://misc/inverseTileset.tres" id="9_n858l"]
+[ext_resource type="AudioStream" uid="uid://b0lcnku8y725o" path="res://sfx/steppin3.wav" id="10_7w1mp"]
+[ext_resource type="PackedScene" uid="uid://l2redlkqy0uh" path="res://scenes/dust.tscn" id="11_3y3x5"]
+[ext_resource type="Script" path="res://scripts/terrainDetector.gd" id="12_kndbs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0qbx4"]
+radius = 8.5
+height = 35.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7muyb"]
+atlas = ExtResource("8_7hug2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oem3j"]
+atlas = ExtResource("8_7hug2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vb8ko"]
+atlas = ExtResource("8_7hug2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rtfk"]
+atlas = ExtResource("8_7hug2")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_078bj"]
+atlas = ExtResource("8_7hug2")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nggns"]
+atlas = ExtResource("8_7hug2")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku4ma"]
+atlas = ExtResource("8_7hug2")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u6i4"]
+atlas = ExtResource("8_7hug2")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgt80"]
+atlas = ExtResource("8_7hug2")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoy43"]
+atlas = ExtResource("8_7hug2")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1uj7"]
+atlas = ExtResource("9_4qbfn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evymg"]
+atlas = ExtResource("9_4qbfn")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byndh"]
+atlas = ExtResource("9_4qbfn")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc778"]
+atlas = ExtResource("9_4qbfn")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1eor"]
+atlas = ExtResource("9_4qbfn")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3bti"]
+atlas = ExtResource("9_4qbfn")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iotkd"]
+atlas = ExtResource("9_4qbfn")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flrte"]
+atlas = ExtResource("9_4qbfn")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ngh5d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7muyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oem3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vb8ko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rtfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_078bj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nggns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku4ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7u6i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgt80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aoy43")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.5
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1uj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evymg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byndh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc778")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1eor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3bti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iotkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flrte")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tbsfw"]
+random_pitch = 1.02
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("10_7w1mp")
+stream_0/weight = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6w6c7"]
+size = Vector2(16, 3)
+
+[sub_resource type="Animation" id="Animation_aef31"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p0iu7"]
+resource_name = "jump"
+length = 0.2
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.15, 0.841), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8y5yt"]
+resource_name = "land"
+length = 0.2
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.35, 0.775), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kbxdd"]
+_data = {
+"RESET": SubResource("Animation_aef31"),
+"jump": SubResource("Animation_p0iu7"),
+"land": SubResource("Animation_8y5yt")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k1rsb"]
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_owqnw"]
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2ynss"]
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_56md7"]
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sq0wt"]
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_a2mql"]
+light_mode = 2
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(130, 217)
+zoom = Vector2(2, 2)
+script = ExtResource("1_35dlq")
+player = NodePath("../Player")
+
+[node name="DoorHandler" parent="." instance=ExtResource("2_s51ea")]
+position = Vector2(2070, 323)
+
+[node name="Nabo" parent="." instance=ExtResource("2_63ibo")]
+position = Vector2(211, 210)
+
+[node name="Rat" parent="." instance=ExtResource("2_iqgoo")]
+position = Vector2(1525, 345)
+
+[node name="Turtle" parent="." instance=ExtResource("2_ikfup")]
+position = Vector2(621, 345)
+
+[node name="Ramiro" parent="." instance=ExtResource("4_8l1hf")]
+position = Vector2(1057, 345)
+
+[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("lupa")]
+position = Vector2(0, -26.99)
+collision_mask = 8
+script = ExtResource("7_uyeo7")
+lupa = NodePath("../Lupa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(1, 2)
+shape = SubResource("CapsuleShape2D_0qbx4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_ngh5d")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.94681
+
+[node name="Steps" type="AudioStreamPlayer2D" parent="Player"]
+stream = SubResource("AudioStreamRandomizer_tbsfw")
+volume_db = 0.677
+attenuation = 1.23114
+panning_strength = 0.0
+bus = &"SFX"
+
+[node name="JumpBuffer" type="Timer" parent="Player"]
+wait_time = 0.75
+one_shot = true
+
+[node name="CoyoteTime" type="Timer" parent="Player"]
+wait_time = 0.3
+one_shot = true
+
+[node name="JumpHeight" type="Timer" parent="Player"]
+wait_time = 0.01
+one_shot = true
+
+[node name="Dust" parent="Player" instance=ExtResource("11_3y3x5")]
+position = Vector2(2, 77)
+
+[node name="TerrainDetector" type="Area2D" parent="Player"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("12_kndbs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/TerrainDetector"]
+position = Vector2(1, 19)
+shape = SubResource("RectangleShape2D_6w6c7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+libraries = {
+"": SubResource("AnimationLibrary_kbxdd")
+}
+
+[node name="Lupa" type="Area2D" parent="." node_paths=PackedStringArray("main", "scaled", "alt", "invis", "mainTilemap", "mainSpikesTilemap", "player")]
+collision_layer = 2
+script = ExtResource("2_oo63b")
+main = NodePath("../LevelHandler/Main")
+scaled = NodePath("../LevelHandler/Scaled")
+alt = NodePath("../LevelHandler/Alternative")
+invis = NodePath("../LevelHandler/Invisible")
+mainTilemap = NodePath("../LevelHandler/Main/Level")
+mainSpikesTilemap = NodePath("../LevelHandler/Main/Spikes")
+player = NodePath("../Player")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lupa"]
+z_index = 100
+texture_filter = 1
+position = Vector2(-35.0001, 35)
+texture = ExtResource("3_5pn54")
+hframes = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lupa"]
+position = Vector2(-29.0001, 29)
+polygon = PackedVector2Array(21, -86, 36, -86, 53, -81, 69, -69, 81, -53, 86, -36, 86, -21, 81, -4, 69, 12, 53, 24, 36, 29, 21, 29, 4, 24, -12, 12, -24, -4, -29, -21, -29, -36, -24, -53, -12, -69, 4, -81)
+
+[node name="Mask" type="PointLight2D" parent="Lupa"]
+texture_filter = 1
+position = Vector2(-35.0001, 35)
+energy = 0.0
+range_item_cull_mask = 2
+texture = ExtResource("4_25cno")
+
+[node name="InvMask" type="PointLight2D" parent="Lupa"]
+light_mask = 2
+visibility_layer = 2
+texture_filter = 1
+position = Vector2(3, 1)
+scale = Vector2(1.05, 1.05)
+energy = 0.0
+texture = ExtResource("5_fejvq")
+
+[node name="LupaHitbox" type="StaticBody2D" parent="Lupa"]
+collision_layer = 32
+collision_priority = 0.135
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lupa/LupaHitbox"]
+position = Vector2(-29.0001, 29)
+polygon = PackedVector2Array(21, -86, 36, -86, 53, -81, 69, -69, 81, -53, 86, -36, 86, -21, 81, -4, 69, 12, 53, 24, 36, 29, 21, 29, 4, 24, -8.9999, 18, -11.9999, 20, -14.9999, 26, -24.9999, 33, -27.9999, 35, -69.9999, 76, -72.9999, 81, -74.9999, 81, -74.9999, 84, -79.9999, 90, -83.9999, 92, -86.9999, 93, -92.9999, 93, -94.9999, 91, -94.9999, 85, -93.9999, 82, -91.9999, 78, -85.9999, 73, -82.9999, 73, -82.9999, 71, -77.9999, 68, -36.9999, 26, -34.9999, 23, -27.9999, 13, -21.9999, 10, -19.9999, 7, -24, -4, -29, -21, -29, -36, -24, -53, -12, -69, 4, -81)
+
+[node name="LevelHandler" type="Node2D" parent="."]
+
+[node name="Main" type="Node2D" parent="LevelHandler"]
+
+[node name="Level" parent="LevelHandler/Main" instance=ExtResource("3_sdsex")]
+position = Vector2(0.5, 0.5)
+
+[node name="LevelIntersection" type="StaticBody2D" parent="LevelHandler/Main" node_paths=PackedStringArray("lupa", "tilemap", "player")]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("4_10di6")
+lupa = NodePath("../../../Lupa")
+tilemap = NodePath("../Level")
+player = NodePath("../../../Player")
+
+[node name="Spikes" type="TileMap" parent="LevelHandler/Main"]
+material = SubResource("CanvasItemMaterial_k1rsb")
+tile_set = ExtResource("5_itr7s")
+format = 2
+layer_0/name = "Default"
+
+[node name="SpikesIntersection" type="Area2D" parent="LevelHandler/Main" node_paths=PackedStringArray("lupa", "tilemap", "player")]
+collision_layer = 128
+script = ExtResource("4_10di6")
+lupa = NodePath("../../../Lupa")
+tilemap = NodePath("../Spikes")
+player = NodePath("../../../Player")
+
+[node name="Scaled" type="Node2D" parent="LevelHandler"]
+
+[node name="ScaledLevel" type="Node2D" parent="LevelHandler/Scaled" node_paths=PackedStringArray("lupa")]
+position = Vector2(-1000, 0)
+script = ExtResource("6_gy86c")
+lupa = NodePath("../../../Lupa")
+
+[node name="ScaledLevel" parent="LevelHandler/Scaled/ScaledLevel" instance=ExtResource("7_gb8ua")]
+
+[node name="ScaledLevelIntersection" type="StaticBody2D" parent="LevelHandler/Scaled" node_paths=PackedStringArray("lupa", "tilemap", "player")]
+collision_layer = 8
+collision_mask = 0
+collision_priority = 0.135
+script = ExtResource("4_10di6")
+lupa = NodePath("../../../Lupa")
+tilemap = NodePath("../ScaledLevel/ScaledLevel")
+inverseMode = true
+player = NodePath("../../../Player")
+
+[node name="ScaledSpikes" type="Node2D" parent="LevelHandler/Scaled" node_paths=PackedStringArray("lupa")]
+position = Vector2(-1000, 0)
+script = ExtResource("6_gy86c")
+lupa = NodePath("../../../Lupa")
+
+[node name="ScaledSpikes" type="TileMap" parent="LevelHandler/Scaled/ScaledSpikes"]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_owqnw")
+tile_set = ExtResource("8_pn5fs")
+format = 2
+layer_0/name = "Default"
+
+[node name="ScaledSpikesIntersection" type="Area2D" parent="LevelHandler/Scaled" node_paths=PackedStringArray("lupa", "tilemap", "player")]
+collision_layer = 128
+script = ExtResource("4_10di6")
+lupa = NodePath("../../../Lupa")
+tilemap = NodePath("../ScaledSpikes/ScaledSpikes")
+inverseMode = true
+player = NodePath("../../../Player")
+
+[node name="Alternative" type="Node2D" parent="LevelHandler"]
+
+[node name="AlternativeLevel" type="TileMap" parent="LevelHandler/Alternative"]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_2ynss")
+tile_set = ExtResource("9_n858l")
+format = 2
+layer_0/name = "Default"
+layer_1/name = "Background"
+layer_1/z_index = -50
+layer_1/tile_data = PackedInt32Array()
+
+[node name="AlternativeLevelIntersection" type="StaticBody2D" parent="LevelHandler/Alternative" node_paths=PackedStringArray("lupa", "tilemap", "player")]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("4_10di6")
+lupa = NodePath("../../../Lupa")
+tilemap = NodePath("../AlternativeLevel")
+inverseMode = true
+player = NodePath("../../../Player")
+
+[node name="AlternativeSpikes" type="TileMap" parent="LevelHandler/Alternative"]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_56md7")
+tile_set = ExtResource("8_pn5fs")
+format = 2
+layer_0/name = "Default"
+
+[node name="AlternativeSpikesIntersection" type="Area2D" parent="LevelHandler/Alternative" node_paths=PackedStringArray("lupa", "tilemap", "player")]
+collision_layer = 128
+script = ExtResource("4_10di6")
+lupa = NodePath("../../../Lupa")
+tilemap = NodePath("../AlternativeSpikes")
+inverseMode = true
+player = NodePath("../../../Player")
+
+[node name="Invisible" type="Node2D" parent="LevelHandler"]
+
+[node name="InvisibleLevel" type="TileMap" parent="LevelHandler/Invisible"]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_sq0wt")
+tile_set = ExtResource("9_n858l")
+format = 2
+layer_0/name = "Default"
+layer_1/name = "Background"
+layer_1/z_index = -50
+layer_1/tile_data = PackedInt32Array()
+
+[node name="InvisibleLevelIntersection" type="StaticBody2D" parent="LevelHandler/Invisible" node_paths=PackedStringArray("lupa", "tilemap", "player")]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("4_10di6")
+lupa = NodePath("../../../Lupa")
+tilemap = NodePath("../InvisibleLevel")
+inverseMode = true
+player = NodePath("../../../Player")
+
+[node name="InvisibleSpikes" type="TileMap" parent="LevelHandler/Invisible"]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_a2mql")
+tile_set = ExtResource("8_pn5fs")
+format = 2
+layer_0/name = "Background"
+
+[node name="InvisibleSpikesIntersection" type="Area2D" parent="LevelHandler/Invisible" node_paths=PackedStringArray("lupa", "tilemap", "player")]
+collision_layer = 128
+script = ExtResource("4_10di6")
+lupa = NodePath("../../../Lupa")
+tilemap = NodePath("../InvisibleSpikes")
+inverseMode = true
+player = NodePath("../../../Player")
+
+[connection signal="area_entered" from="DoorHandler" to="DoorHandler" method="_on_area_entered"]
+[connection signal="body_entered" from="DoorHandler" to="Player" method="_on_door_handler_body_entered"]
+[connection signal="mouse_entered" from="Nabo" to="Nabo" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Nabo" to="Nabo" method="_on_mouse_exited"]
+[connection signal="timeout" from="Player/JumpBuffer" to="Player" method="jumpBufferTimeout"]
+[connection signal="timeout" from="Player/CoyoteTime" to="Player" method="coyoteTimeout"]
+[connection signal="timeout" from="Player/JumpHeight" to="Player" method="jumpHeightTimeout"]
+[connection signal="area_shape_entered" from="Player/TerrainDetector" to="Player/TerrainDetector" method="areaShapeEntered"]
+[connection signal="body_shape_entered" from="Player/TerrainDetector" to="Player/TerrainDetector" method="bodyShapeEntered"]
+[connection signal="body_entered" from="Lupa" to="Lupa" method="bodyEntered"]
+[connection signal="body_exited" from="Lupa" to="Lupa" method="bodyExited"]
+[connection signal="scaleLevelChanged" from="Lupa" to="LevelHandler/Scaled/ScaledLevel" method="scaleLevelChange"]
+[connection signal="scaleLevelChanged" from="Lupa" to="LevelHandler/Scaled/ScaledSpikes" method="scaleLevelChange"]
+
+[editable path="Player/Dust"]
