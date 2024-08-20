@@ -14,6 +14,7 @@ class_name Player
 @onready var coyoteTimer = $CoyoteTime
 @onready var jumpBufferTimer = $JumpBuffer
 @onready var jumpHeightTimer = $JumpHeight
+@export var level1: bool = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")*1.5
@@ -33,6 +34,7 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
+	if (lupa.mode == lupa.ModeType.SCALE_ITEM): lupa.mode = lupa.ModeType.NONE
 	if (Input.is_action_just_pressed("L")): puzzleWin()
 	if Input.is_action_just_pressed("RESET"): resetLevel()
 	shifting = Input.is_action_pressed("SHIFT")
@@ -58,7 +60,7 @@ func resetLevel():
 	$WinAnimation/Sprite2D.visible = false
 	self.global_position = ogPos
 	velocity = Vector2.ZERO
-	lupa.mode = Lupa.ModeType.NONE
+	lupa.mode = Lupa.ModeType.SCALE_ITEM
 	lupa.scalePlayer = 1.0
 	lupa.scaleLevel = 1.0
 	camera.reset()
@@ -156,6 +158,7 @@ func onDanceFinished():
 	danceFinished = true
 	allowMove = true
 	$AnimatedSprite2D.visible = true
+	if (level1): get_tree().change_scene_to_file("res://scenes/win_screen.tscn")
 func enterDoor():
 	print("enterDoor")
 	danceFinished = false
