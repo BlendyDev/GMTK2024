@@ -80,6 +80,9 @@ func blink():
 	$SFX/Blink.play()
 func stopblink():
 	$SFX/Blink.stop()
+	
+func entersound():
+	$SFX/EnterSound.play()
 #VOICES
 
 func jumpvoice():

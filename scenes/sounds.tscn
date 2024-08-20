@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://0mvoctdun5rx"]
+[gd_scene load_steps=46 format=3 uid="uid://0mvoctdun5rx"]
 
 [ext_resource type="Script" path="res://scripts/sounds.gd" id="1_danjj"]
 [ext_resource type="AudioStream" uid="uid://c4cj5yxgdbleu" path="res://music/tutorialwarioostlooptemp.wav" id="2_qppkm"]
@@ -31,6 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://80dmc53rdxe5" path="res://sfx/ramirovoice.wav" id="20_a77im"]
 [ext_resource type="AudioStream" uid="uid://chglcenqgaveq" path="res://sfx/blink2.wav" id="20_cqwyx"]
 [ext_resource type="AudioStream" uid="uid://wtjqx2u4ngnh" path="res://sfx/nabovoice.wav" id="21_vm76b"]
+[ext_resource type="AudioStream" uid="uid://8cbonlb0tmer" path="res://sfx/enterdoor.wav" id="21_y68mc"]
 [ext_resource type="AudioStream" uid="uid://d3gxio3spipvb" path="res://sfx/deathsound.wav" id="27_8ej2w"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qtosk"]
@@ -254,6 +255,10 @@ stream = ExtResource("20_cqwyx")
 max_distance = 1e+17
 panning_strength = 0.0
 bus = &"SFX"
+
+[node name="EnterSound" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("21_y68mc")
+max_distance = 1e+15
 
 [node name="Voices" type="Node" parent="."]
 

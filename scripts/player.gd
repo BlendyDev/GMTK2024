@@ -24,16 +24,47 @@ var jumpBuffered := false
 var jumping := false
 var allowCutJump := true
 var queuedCutJump := false
+
+var allowMove := true
 @onready var ogPos: Vector2 = self.global_position
 
+func _process(delta):
+	print (Global.puzzleWin)
+
 func _physics_process(delta):
+	#if $DeathTimer.is_stopped():
+		#$AnimatedSprite2D2.visible = false
+	#if Global.hasdied:
+		#$AnimatedSprite2D.visible = false
+		#$AnimatedSprite2D2.animation = "die"		
+		#$AnimatedSprite2D2.visible = true
+		#$DeathTimer.start()
+	if Global.puzzleWin and !Global.haswon:
+		allowMove = false
+		if $WinTimer.is_stopped():
+			$WinTimer.start()
+		$WinAnimation/Sprite2D.visible = true
+		$AnimatedSprite2D.visible = false
+		$Sprite2D.visible = false
+	else:
+		$WinAnimation/Sprite2D.visible = false
+	if Global.canenter:
+		if Input.is_action_just_pressed("NEXT"):
+			allowMove = false
+			$AnimatedSprite2D.visible = false
+			$Sprite2D.visible = true
+			
+			Sounds.entersound()
+			var tween2 = get_tree().create_tween()
+			tween2.tween_property($Sprite2D, "modulate", Color(1, 1, 1, 0), 1)
+			
 	if Input.is_action_just_pressed("RESET"): resetLevel()
 	shifting = Input.is_action_pressed("SHIFT")
 	var direction := Input.get_axis("LEFT", "RIGHT")
 	handleJump(delta, direction)
 	handleMoving(direction, delta) if direction else handleStatic(delta)
 	var was_on_floor = is_on_floor()
-	move_and_slide()
+	if allowMove: move_and_slide()
 	if was_on_floor && !is_on_floor() && velocity.y >= 0:
 		coyote = true
 		coyoteTimer.start()
@@ -47,6 +78,8 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 		
 func resetLevel():
+	$AnimatedSprite2D.visible = true
+	$WinAnimation/Sprite2D.visible = false
 	self.global_position = ogPos
 	velocity = Vector2.ZERO
 	lupa.mode = Lupa.ModeType.NONE
@@ -129,3 +162,12 @@ func jumpHeightTimeout():
 
 
 
+
+
+func _on_win_timer_timeout():
+	Global.haswon = true
+	Global.puzzleWin = false
+	$WinAnimation.visible = false
+	$AnimatedSprite2D.visible = true
+	$Sprite2D.visible = false
+	allowMove = true
