@@ -3,7 +3,6 @@
 [ext_resource type="TileSet" uid="uid://dfxer2gdkm210" path="res://misc/tileset.tres" id="1_v7uq8"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rfuk0"]
-light_mode = 2
 
 [node name="Level" type="TileMap"]
 material = SubResource("CanvasItemMaterial_rfuk0")

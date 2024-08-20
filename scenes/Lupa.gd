@@ -106,7 +106,7 @@ func handlePlayerScroll(delta):
 	
 func updatePlayerScale():
 	player.global_scale = Vector2(scalePlayer, scalePlayer) if insideLupa else Vector2.ONE
-	AudioServer.playback_speed_scale = float(scalePlayer+1)/float(2*scalePlayer) if scalePlayer > 1 else -pow(scalePlayer, 0.4)+2
+	AudioServer.playback_speed_scale = (float(scalePlayer+1)/float(2*scalePlayer) if scalePlayer > 1 else -pow(scalePlayer, 0.4)+2) if insideLupa else 1.0
 
 func bodyEntered(body):
 	insideLupa = true

@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bc77s0v03x3cw"]
+[gd_scene load_steps=15 format=3 uid="uid://bc77s0v03x3cw"]
 
+[ext_resource type="Script" path="res://scripts/camera.gd" id="1_20xe4"]
 [ext_resource type="PackedScene" uid="uid://6guy5rxqs3n2" path="res://scenes/player.tscn" id="2_phniv"]
 [ext_resource type="PackedScene" uid="uid://bvp76thu8x4rt" path="res://scenes/lupa.tscn" id="2_wpv3h"]
 [ext_resource type="PackedScene" uid="uid://hvi46hykem35" path="res://scenes/level/template/level.tscn" id="3_cnnv3"]
@@ -12,12 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://d03q1n2lh7qlf" path="res://scenes/level/template/alternativeSpikes.tscn" id="10_2rlgn"]
 [ext_resource type="PackedScene" uid="uid://ko5wp7cljoee" path="res://scenes/level/template/invisibleLevel.tscn" id="11_h1hs6"]
 [ext_resource type="PackedScene" uid="uid://bdhntre5sjkfb" path="res://scenes/level/template/invisibleSpikes.tscn" id="12_28jci"]
+[ext_resource type="Script" path="res://scripts/OnOffManager.gd" id="13_pay3m"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(0.691001, 0.728167)
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2, 2)
+script = ExtResource("1_20xe4")
 
 [node name="Player" parent="." node_paths=PackedStringArray("lupa") instance=ExtResource("2_phniv")]
 position = Vector2(0, -26.99)
@@ -136,6 +139,9 @@ lupa = NodePath("../../../Lupa")
 tilemap = NodePath("../InvisibleSpikes")
 inverseMode = true
 player = NodePath("../../../Player")
+
+[node name="OnOffManager" type="Node2D" parent="LevelHandler"]
+script = ExtResource("13_pay3m")
 
 [connection signal="scaleLevelChanged" from="Lupa" to="LevelHandler/Scaled/ScaledLevel" method="scaleLevelChange"]
 [connection signal="scaleLevelChanged" from="Lupa" to="LevelHandler/Scaled/ScaledSpikes" method="scaleLevelChange"]
