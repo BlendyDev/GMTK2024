@@ -137,6 +137,7 @@ script = ExtResource("1_danjj")
 stream = ExtResource("2_u7upp")
 volume_db = -10.0
 pitch_scale = 0.75
+autoplay = true
 bus = &"Music"
 
 [node name="TutorialMusic" type="AudioStreamPlayer2D" parent="Music"]

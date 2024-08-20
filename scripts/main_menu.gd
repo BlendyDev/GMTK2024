@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 
 func _on_play_pressed() -> void:
 	Sounds.uiclick()
-	get_tree().change_scene_to_file("res://senas/world.tscn")
+	get_tree().change_scene_to_file("res://scenes/level/tutorial/tutorial.tscn")
 
 func _on_play_mouse_entered() -> void:
 	Sounds.uihover()
