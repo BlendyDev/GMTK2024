@@ -8,6 +8,7 @@ light_mode = 2
 [node name="AlternativeLevel" type="TileMap"]
 light_mask = 2
 material = SubResource("CanvasItemMaterial_2ynss")
+position = Vector2(0.5, 0.5)
 tile_set = ExtResource("1_i0w5m")
 format = 2
 layer_0/name = "Default"

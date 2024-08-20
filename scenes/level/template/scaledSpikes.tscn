@@ -8,6 +8,7 @@ light_mode = 2
 [node name="ScaledSpikes" type="TileMap"]
 light_mask = 2
 material = SubResource("CanvasItemMaterial_owqnw")
+position = Vector2(0.5, 0.5)
 tile_set = ExtResource("1_cl2ao")
 format = 2
 layer_0/name = "Default"
