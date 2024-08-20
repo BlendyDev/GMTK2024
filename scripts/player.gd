@@ -145,6 +145,7 @@ func _on_win_timer_timeout():
 	allowMove = true
 
 func puzzleWin():
+	Sounds.stoptutorialmusic()
 	print("puzzleWin")
 	allowMove = false
 	$WinAnimation/Sprite2D.visible = true

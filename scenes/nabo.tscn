@@ -601,6 +601,7 @@ hframes = 2
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="timeout" from="TalkingTime" to="." method="_on_talking_time_timeout"]
 [connection signal="timeout" from="SoundTime" to="." method="_on_sound_time_timeout"]
 [connection signal="timeout" from="AnimationTime" to="." method="_on_animation_time_timeout"]

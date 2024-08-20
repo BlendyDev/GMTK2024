@@ -13,6 +13,7 @@ func _ready() -> void:
 	$RichTextLabel3.visible_ratio = 0
 	$RichTextLabel4.visible_ratio = 0
 	$RichTextLabel5.visible_ratio = 0
+	$Sprite2D.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
