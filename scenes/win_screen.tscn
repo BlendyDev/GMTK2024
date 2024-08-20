@@ -1,8 +1,9 @@
-[gd_scene load_steps=53 format=3 uid="uid://bq7ecd1vi6iib"]
+[gd_scene load_steps=54 format=3 uid="uid://d0cchq8uktd5v"]
 
 [ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_n2xvs"]
 [ext_resource type="Texture2D" uid="uid://bwth3u3wspvlk" path="res://sprites/backgroundmenu2.png" id="1_u2h4l"]
 [ext_resource type="Texture2D" uid="uid://cai60dv1man8i" path="res://sprites/baile-Sheet.png" id="2_lmm06"]
+[ext_resource type="Texture2D" uid="uid://1lpg42e527sp" path="res://tmp/character.png" id="3_7t4gc"]
 [ext_resource type="Texture2D" uid="uid://bwtresq0u6y3j" path="res://sprites/sillyguy_idle-Sheet.png" id="3_bh74w"]
 [ext_resource type="FontFile" uid="uid://cj2ccsjuqok0k" path="res://fonts/manaspc.ttf" id="3_wm7fr"]
 [ext_resource type="Texture2D" uid="uid://rnov4es21vih" path="res://sprites/rat_idle-Sheet.png" id="4_w3ge3"]
@@ -352,26 +353,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n2xvs")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(939, 538)
+scale = Vector2(4.17407, 4.17407)
 texture = ExtResource("1_u2h4l")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.392157)
+[node name="BG2" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.247059)
+position = Vector2(1063.61, 536)
+scale = Vector2(37.7623, 17.7433)
+texture = ExtResource("3_7t4gc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(613, 481)
+position = Vector2(941, 647)
 scale = Vector2(12, 12)
 sprite_frames = SubResource("SpriteFrames_2yt0v")
 autoplay = "default"
@@ -379,7 +373,7 @@ frame = 14
 frame_progress = 0.884205
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(244, 490)
+position = Vector2(383, 554)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_bl25v")
 animation = &"new_animation"
@@ -388,7 +382,7 @@ frame = 4
 frame_progress = 0.884
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
-position = Vector2(997, 514)
+position = Vector2(1595, 511)
 scale = Vector2(9, 9)
 sprite_frames = SubResource("SpriteFrames_5ymth")
 animation = &"new_animation"
@@ -397,7 +391,7 @@ frame = 3
 frame_progress = 0.00646237
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
-position = Vector2(1201, 621)
+position = Vector2(1260, 690)
 sprite_frames = SubResource("SpriteFrames_o1hna")
 animation = &"new_animation"
 autoplay = "new_animation"
@@ -407,20 +401,17 @@ frame_progress = 0.486996
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.252
-anchor_top = 0.093
-anchor_right = 0.252
-anchor_bottom = 0.093
-offset_left = -221.56
-offset_top = 0.0400085
-offset_right = 862.44
-offset_bottom = 99.04
+anchor_left = 0.221354
+anchor_top = 0.0925926
+anchor_right = 0.785937
+anchor_bottom = 0.184259
 grow_horizontal = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.290196)
 theme_override_constants/outline_size = 24
 theme_override_fonts/normal_font = ExtResource("3_wm7fr")
 theme_override_font_sizes/normal_font_size = 84
 text = "THANKS FOR PLAYING!"
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -430,20 +421,17 @@ autoplay = "wintext"
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 485.0
-offset_top = 283.0
-offset_right = 621.0
-offset_bottom = 339.0
+anchors_preset = -1
+anchor_left = 0.840104
+anchor_top = 0.868519
+anchor_right = 0.910937
+anchor_bottom = 0.92037
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_wm7fr")
 theme_override_font_sizes/font_size = 48
 text = "Quit"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

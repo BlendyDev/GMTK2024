@@ -4,7 +4,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Sounds.winmusic()
-	GemsUIs.visible = false
+	GemsUIs.get_child(0).visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
