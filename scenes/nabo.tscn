@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dprknn6ey610d" path="res://sprites/presionae-Sheet.png" id="8_ca0t2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j253i"]
-size = Vector2(108, 69)
+size = Vector2(299, 69)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_546k2"]
 atlas = ExtResource("1_ojo15")
@@ -481,7 +481,7 @@ position = Vector2(998, 149)
 script = ExtResource("1_xx4vo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-24, -14.5)
+position = Vector2(-119.5, -14.5)
 shape = SubResource("RectangleShape2D_j253i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
