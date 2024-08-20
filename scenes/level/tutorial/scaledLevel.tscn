@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmrb4fssxeks1"]
+
+[ext_resource type="TileSet" uid="uid://d338qiepy3cw8" path="res://misc/inverseTileset.tres" id="1_a8d2s"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8h2fj"]
+light_mode = 2
+
+[node name="ScaledLevel" type="TileMap"]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_8h2fj")
+tile_set = ExtResource("1_a8d2s")
+format = 2
+layer_0/name = "Default"
+layer_1/name = "Background"
+layer_1/z_index = -50
+layer_1/tile_data = PackedInt32Array()

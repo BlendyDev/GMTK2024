@@ -75,8 +75,11 @@ func lupasound8():
 
 func deathsound():
 	$Voices/DeathSound.play()
-	
-	
+
+func blink():
+	$SFX/Blink.play()
+func stopblink():
+	$SFX/Blink.stop()
 #VOICES
 
 func jumpvoice():
@@ -93,6 +96,18 @@ func stopturtlevoice():
 	$Voices/TurtleVoice.stop()
 	$Voices/TurtleVoice.play()
 	
+func ramirovoice():
+	$Voices/RamiroVoice.play()
+func stopramirovoice():
+	$Voices/RamiroVoice.stop()
+	$Voices/RamiroVoice.play()	
+
+func ratvoice():
+	$Voices/RatVoice.play()
+func stopratvoice():
+	$Voices/RatVoice.stop()
+	$Voices/RatVoice.play()
+
 func nabovoice():
 	$Voices/NaboVoice.play()
 func stopnabovoice():

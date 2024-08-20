@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cg154e3cwcjlr"]
+[gd_scene load_steps=41 format=3 uid="uid://cg154e3cwcjlr"]
 
 [ext_resource type="Texture2D" uid="uid://2cryhpbyyx5l" path="res://sprites/gusanodeprevado-Sheet.png" id="1_ojo15"]
 [ext_resource type="Script" path="res://scripts/nabo.gd" id="1_xx4vo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://codixfa7h6yrn" path="res://sprites/bicho-Sheet.png" id="3_kfh4b"]
 [ext_resource type="Texture2D" uid="uid://o7krashpq30x" path="res://sprites/nabo_pequeno_como_el_de_tato-Sheet.png" id="4_wi1s4"]
 [ext_resource type="Texture2D" uid="uid://4bgodo4d3j2s" path="res://sprites/globo.png" id="6_fqje7"]
+[ext_resource type="FontFile" uid="uid://cj2ccsjuqok0k" path="res://fonts/manaspc.ttf" id="7_8dw07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j253i"]
 size = Vector2(108, 69)
@@ -41,6 +42,14 @@ region = Rect2(140, 0, 70, 70)
 [sub_resource type="AtlasTexture" id="AtlasTexture_mrvju"]
 atlas = ExtResource("2_g3i0m")
 region = Rect2(210, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgkn4"]
+atlas = ExtResource("3_kfh4b")
+region = Rect2(0, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5qc8"]
+atlas = ExtResource("4_wi1s4")
+region = Rect2(0, 0, 70, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_myp5a"]
 atlas = ExtResource("3_kfh4b")
@@ -120,6 +129,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jgkn4")
+}],
+"loop": true,
+"name": &"idlebig",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5qc8")
+}],
+"loop": true,
+"name": &"idlesmall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_myp5a")
 }, {
 "duration": 1.0,
@@ -145,7 +170,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"talkbig",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -156,7 +181,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"talksmall",
-"speed": 8.0
+"speed": 10.0
 }]
 
 [sub_resource type="Animation" id="Animation_45grp"]
@@ -266,19 +291,55 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/path = NodePath("RichTextLabel2:visible_ratio")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel3:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RichTextLabel4:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RichTextLabel5:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_48rox"]
 resource_name = "text"
-length = 12.0
+length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -286,34 +347,136 @@ tracks/0/path = NodePath("RichTextLabel:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.16667, 1.7, 2.86667, 3.43333, 6.1, 6.6, 8.3, 8.66667, 10.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 7.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 0.122, 0.122, 0.26913, 0.269, 0.604949, 0.605, 0.914923, 0.915, 1.0]
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_tuceq"]
+resource_name = "text2"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/path = NodePath("RichTextLabel2:visible_ratio")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
+"times": PackedFloat32Array(0, 7.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_et1f3"]
+resource_name = "text3"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel2:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel3:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 7.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_jvf73"]
+resource_name = "text4"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel3:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel4:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 7.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_meq62"]
+resource_name = "text5"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel4:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel5:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 7.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_74cua"]
 _data = {
 "RESET": SubResource("Animation_xe83o"),
-"text": SubResource("Animation_48rox")
+"text": SubResource("Animation_48rox"),
+"text2": SubResource("Animation_tuceq"),
+"text3": SubResource("Animation_et1f3"),
+"text4": SubResource("Animation_jvf73"),
+"text5": SubResource("Animation_meq62")
 }
 
 [node name="Nabo" type="Area2D"]
 position = Vector2(998, 149)
-collision_layer = 3
-collision_mask = 3
 script = ExtResource("1_xx4vo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -321,9 +484,10 @@ position = Vector2(-24, -14.5)
 shape = SubResource("RectangleShape2D_j253i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+process_mode = 1
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_cbqy3")
-animation = &"talksmall"
+animation = &"eyebig"
 autoplay = "eyesmall"
 flip_h = true
 
@@ -337,10 +501,12 @@ texture = ExtResource("6_fqje7")
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 14.0
 offset_top = -99.0
-offset_right = 141.0
-offset_bottom = -39.0
+offset_right = 173.0
+offset_bottom = -27.0
+scale = Vector2(0.8, 0.8)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 9
+theme_override_fonts/normal_font = ExtResource("7_8dw07")
+theme_override_font_sizes/normal_font_size = 12
 text = "ERMMM. HEY! WHAT'S THAT YOU'VE GOT THERE? OH! IS THIS IT? THE LEGENDARY, UNMATCHED, INCREDIBLE. . ."
 fit_content = true
 visible_characters = 0
@@ -348,46 +514,60 @@ visible_ratio = 0.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 offset_left = 14.0
-offset_top = -99.0
-offset_right = 141.0
-offset_bottom = -39.0
+offset_top = -95.0
+offset_right = 174.0
+offset_bottom = -23.0
+scale = Vector2(0.85, 0.85)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 9
+theme_override_fonts/normal_font = ExtResource("7_8dw07")
+theme_override_font_sizes/normal_font_size = 12
 text = "UM. MAGNIFYING GLASS-INATOR! YEAH! BUT IT'S USELESS AS OF NOW, HEH. HERE, YOU WILL NEED THIS."
 fit_content = true
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
 offset_left = 14.0
-offset_top = -99.0
-offset_right = 141.0
-offset_bottom = -39.0
+offset_top = -95.0
+offset_right = 174.0
+offset_bottom = -23.0
+scale = Vector2(0.85, 0.85)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 9
+theme_override_fonts/normal_font = ExtResource("7_8dw07")
+theme_override_font_sizes/normal_font_size = 12
 text = "THATS THE MAKE-A-BIG GEM! WONDER WHAT IT DOES? WELL, POINT AT ME WITH IT! (USE THE MOUSE)"
 fit_content = true
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="."]
-offset_left = 14.0
-offset_top = -99.0
-offset_right = 141.0
-offset_bottom = -39.0
+offset_left = 15.0
+offset_top = -91.0
+offset_right = 183.0
+offset_bottom = -19.0
+scale = Vector2(0.75, 0.75)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 9
+theme_override_fonts/normal_font = ExtResource("7_8dw07")
+theme_override_font_sizes/normal_font_size = 12
 text = "SEE? I BE BIG NOW! I'M GONNA RULE THE WORLD! MWAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAH. . ."
 fit_content = true
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="."]
 offset_left = 14.0
 offset_top = -99.0
-offset_right = 141.0
-offset_bottom = -39.0
+offset_right = 165.0
+offset_bottom = -27.0
+scale = Vector2(0.85, 0.85)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 9
+theme_override_fonts/normal_font = ExtResource("7_8dw07")
+theme_override_font_sizes/normal_font_size = 12
 text = "NOW YOU'RE TRAPPED WITH ME! MWEHEHEHEHEHEHEH (USE THE MAGNIFYING GLASS TO GET OUT, AHEM)"
 fit_content = true
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="TalkingTime" type="Timer" parent="."]
-wait_time = 5.25
+wait_time = 4.75
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -399,7 +579,7 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_74cua")
 }
-speed_scale = 2.0
+speed_scale = 1.75
 
 [node name="SoundTime" type="Timer" parent="."]
 wait_time = 0.08
