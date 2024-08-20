@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://0mvoctdun5rx"]
+[gd_scene load_steps=48 format=3 uid="uid://0mvoctdun5rx"]
 
 [ext_resource type="Script" path="res://scripts/sounds.gd" id="1_danjj"]
 [ext_resource type="AudioStream" uid="uid://c4cj5yxgdbleu" path="res://music/tutorialwarioostlooptemp.wav" id="2_qppkm"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://c3v2i5okqal5t" path="res://sfx/523771__matrixxx__retro-legendary-jump.wav" id="3_cxon0"]
 [ext_resource type="AudioStream" uid="uid://cb0jtuaw1108u" path="res://music/breakcore epic.mp3" id="4_br5uo"]
 [ext_resource type="AudioStream" uid="uid://mxyb1fxpmkfd" path="res://sfx/landsfx2.wav" id="4_dsci2"]
+[ext_resource type="AudioStream" uid="uid://d108l6uvdchu2" path="res://music/youngprincechillost.wav" id="5_3psg2"]
 [ext_resource type="AudioStream" uid="uid://diommdpxne2rc" path="res://sfx/jumpvoice1.wav" id="5_5qti3"]
 [ext_resource type="AudioStream" uid="uid://bqgo78d4iouxk" path="res://sfx/uihover.wav" id="6_dsw4w"]
 [ext_resource type="AudioStream" uid="uid://davtijp4pc6sx" path="res://sfx/jumpvoice2.wav" id="6_o2rc3"]
@@ -147,6 +148,11 @@ bus = &"Music"
 
 [node name="WinMusic" type="AudioStreamPlayer2D" parent="Music"]
 stream = ExtResource("4_br5uo")
+
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("5_3psg2")
+max_distance = 1e+12
+bus = &"Music"
 
 [node name="SFX" type="Node" parent="."]
 

@@ -26,8 +26,11 @@ func winmusic():
 	$Music/WinMusic.play()
 func stopwinmusic():
 	$Music/WinMusic.stop()
-	
-	
+
+func levelmusic():
+	$Music/LevelMusic.play()
+func stoplevelmusic():
+	$Music/LevelMusic.stop()
 #SFX
 
 func steps():
