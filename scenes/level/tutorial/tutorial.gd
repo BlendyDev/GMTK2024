@@ -17,6 +17,4 @@ func _process(delta):
 
 
 func _on_transition_time_timeout():
-	print("A")
 	Global.changeScreen = false
-	get_tree().reload_current_scene()
