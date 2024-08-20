@@ -8,7 +8,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Global.puzzlewin:
+	if Global.puzzleWin and !Global.haswon:
+		Sounds.stoptutorialmusic()
 		$AnimationPlayer.play("dance")
-		if $AnimationPlayer.animation_finished:
-			Global.puzzlewin = false
+		#if $AnimationPlayer.animation_finished:
+			#self.visible = false
+			#Global.puzzleWin = false
+
+
+func _on_win_timer_timeout():
+	$AnimationPlayer.stop()
+	self.visible = false
+	Global.puzzleWin = false

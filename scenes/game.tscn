@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bdhntre5sjkfb" path="res://scenes/level/template/invisibleSpikes.tscn" id="12_28jci"]
 [ext_resource type="Script" path="res://scripts/OnOffManager.gd" id="13_pay3m"]
 
-[node name="Game" type="Node2D"]
+[node name="Game2" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(0.691001, 0.728167)
