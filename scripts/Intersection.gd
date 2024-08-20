@@ -5,7 +5,7 @@ extends CollisionObject2D
 var intersectionRes = preload("res://scenes/intersectionCollision.tscn")
 @export var inverseMode := false
 @export var tileRadius := 4
-@export var player: CharacterBody2D
+@export var player: Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

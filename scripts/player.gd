@@ -152,10 +152,12 @@ func puzzleWin():
 	$AnimatedSprite2D.visible = false
 	$Sprite2D.visible = false
 func onDanceFinished():
+	print("danceFinished")
 	danceFinished = true
 	allowMove = true
 	$AnimatedSprite2D.visible = true
 func enterDoor():
+	print("enterDoor")
 	danceFinished = false
 	enteringDoor = false
 	allowMove = false

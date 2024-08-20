@@ -21,12 +21,16 @@ func _on_win_zone_body_entered(body):
 	
 func _on_blink_sound_timeout():
 	Sounds.blink()
+	
 
-func _on_next_screen_timeout():
+func animationFinished(anim_name):
+	print("animationFinished")
+	hasEntered = false
+	Global.changeScreen = true
+
+
+func _on_enter_animation_time_timeout():
 	hasEntered = true
 	$AnimationPlayer.play("enter")
 	$BlinkSound.start()
-
-func animationFinished(anim_name):
-	hasEntered = false
-	Global.changeScreen = true
+	pass # Replace with function body.

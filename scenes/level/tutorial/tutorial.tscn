@@ -174,12 +174,13 @@ polygon = PackedVector2Array(21, -86, 36, -86, 53, -81, 69, -69, 81, -53, 86, -3
 [node name="Level" parent="LevelHandler/Main" instance=ExtResource("3_sdsex")]
 position = Vector2(0.5, 0.5)
 
-[node name="LevelIntersection" type="StaticBody2D" parent="LevelHandler/Main" node_paths=PackedStringArray("lupa", "tilemap")]
+[node name="LevelIntersection" type="StaticBody2D" parent="LevelHandler/Main" node_paths=PackedStringArray("lupa", "tilemap", "player")]
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("4_10di6")
 lupa = NodePath("../../../Lupa")
 tilemap = NodePath("../Level")
+player = NodePath("../../../Player")
 
 [node name="Spikes" type="TileMap" parent="LevelHandler/Main"]
 material = SubResource("CanvasItemMaterial_k1rsb")
@@ -187,11 +188,12 @@ tile_set = ExtResource("5_itr7s")
 format = 2
 layer_0/name = "Default"
 
-[node name="SpikesIntersection" type="Area2D" parent="LevelHandler/Main" node_paths=PackedStringArray("lupa", "tilemap")]
+[node name="SpikesIntersection" type="Area2D" parent="LevelHandler/Main" node_paths=PackedStringArray("lupa", "tilemap", "player")]
 collision_layer = 128
 script = ExtResource("4_10di6")
 lupa = NodePath("../../../Lupa")
 tilemap = NodePath("../Spikes")
+player = NodePath("../../../Player")
 
 [node name="Scaled" type="Node2D" parent="LevelHandler"]
 
@@ -202,7 +204,7 @@ lupa = NodePath("../../../Lupa")
 
 [node name="ScaledLevel" parent="LevelHandler/Scaled/ScaledLevel" instance=ExtResource("7_gb8ua")]
 
-[node name="ScaledLevelIntersection" type="StaticBody2D" parent="LevelHandler/Scaled" node_paths=PackedStringArray("lupa", "tilemap")]
+[node name="ScaledLevelIntersection" type="StaticBody2D" parent="LevelHandler/Scaled" node_paths=PackedStringArray("lupa", "tilemap", "player")]
 collision_layer = 8
 collision_mask = 0
 collision_priority = 0.135
@@ -210,6 +212,7 @@ script = ExtResource("4_10di6")
 lupa = NodePath("../../../Lupa")
 tilemap = NodePath("../ScaledLevel/ScaledLevel")
 inverseMode = true
+player = NodePath("../../../Player")
 
 [node name="ScaledSpikes" type="Node2D" parent="LevelHandler/Scaled" node_paths=PackedStringArray("lupa")]
 position = Vector2(-1000, 0)
@@ -223,12 +226,13 @@ tile_set = ExtResource("8_pn5fs")
 format = 2
 layer_0/name = "Default"
 
-[node name="ScaledSpikesIntersection" type="Area2D" parent="LevelHandler/Scaled" node_paths=PackedStringArray("lupa", "tilemap")]
+[node name="ScaledSpikesIntersection" type="Area2D" parent="LevelHandler/Scaled" node_paths=PackedStringArray("lupa", "tilemap", "player")]
 collision_layer = 128
 script = ExtResource("4_10di6")
 lupa = NodePath("../../../Lupa")
 tilemap = NodePath("../ScaledSpikes/ScaledSpikes")
 inverseMode = true
+player = NodePath("../../../Player")
 
 [node name="Alternative" type="Node2D" parent="LevelHandler"]
 
@@ -242,13 +246,14 @@ layer_1/name = "Background"
 layer_1/z_index = -50
 layer_1/tile_data = PackedInt32Array()
 
-[node name="AlternativeLevelIntersection" type="StaticBody2D" parent="LevelHandler/Alternative" node_paths=PackedStringArray("lupa", "tilemap")]
+[node name="AlternativeLevelIntersection" type="StaticBody2D" parent="LevelHandler/Alternative" node_paths=PackedStringArray("lupa", "tilemap", "player")]
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("4_10di6")
 lupa = NodePath("../../../Lupa")
 tilemap = NodePath("../AlternativeLevel")
 inverseMode = true
+player = NodePath("../../../Player")
 
 [node name="AlternativeSpikes" type="TileMap" parent="LevelHandler/Alternative"]
 light_mask = 2
@@ -257,12 +262,13 @@ tile_set = ExtResource("8_pn5fs")
 format = 2
 layer_0/name = "Default"
 
-[node name="AlternativeSpikesIntersection" type="Area2D" parent="LevelHandler/Alternative" node_paths=PackedStringArray("lupa", "tilemap")]
+[node name="AlternativeSpikesIntersection" type="Area2D" parent="LevelHandler/Alternative" node_paths=PackedStringArray("lupa", "tilemap", "player")]
 collision_layer = 128
 script = ExtResource("4_10di6")
 lupa = NodePath("../../../Lupa")
 tilemap = NodePath("../AlternativeSpikes")
 inverseMode = true
+player = NodePath("../../../Player")
 
 [node name="Invisible" type="Node2D" parent="LevelHandler"]
 
@@ -276,13 +282,14 @@ layer_1/name = "Background"
 layer_1/z_index = -50
 layer_1/tile_data = PackedInt32Array()
 
-[node name="InvisibleLevelIntersection" type="StaticBody2D" parent="LevelHandler/Invisible" node_paths=PackedStringArray("lupa", "tilemap")]
+[node name="InvisibleLevelIntersection" type="StaticBody2D" parent="LevelHandler/Invisible" node_paths=PackedStringArray("lupa", "tilemap", "player")]
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("4_10di6")
 lupa = NodePath("../../../Lupa")
 tilemap = NodePath("../InvisibleLevel")
 inverseMode = true
+player = NodePath("../../../Player")
 
 [node name="InvisibleSpikes" type="TileMap" parent="LevelHandler/Invisible"]
 light_mask = 2
@@ -291,12 +298,13 @@ tile_set = ExtResource("8_pn5fs")
 format = 2
 layer_0/name = "Background"
 
-[node name="InvisibleSpikesIntersection" type="Area2D" parent="LevelHandler/Invisible" node_paths=PackedStringArray("lupa", "tilemap")]
+[node name="InvisibleSpikesIntersection" type="Area2D" parent="LevelHandler/Invisible" node_paths=PackedStringArray("lupa", "tilemap", "player")]
 collision_layer = 128
 script = ExtResource("4_10di6")
 lupa = NodePath("../../../Lupa")
 tilemap = NodePath("../InvisibleSpikes")
 inverseMode = true
+player = NodePath("../../../Player")
 
 [node name="Transitions" type="AnimationPlayer" parent="."]
 libraries = {

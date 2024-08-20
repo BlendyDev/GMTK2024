@@ -5,6 +5,7 @@ extends Node2D
 func _ready():
 	Global.hasWon = false
 	$Transitions.play("fadein")
+	Sounds.tutorialmusic()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,5 +17,6 @@ func _process(delta):
 
 
 func _on_transition_time_timeout():
+	print("A")
 	Global.changeScreen = false
 	get_tree().reload_current_scene()
