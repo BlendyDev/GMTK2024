@@ -21,27 +21,34 @@ func _process(delta: float) -> void:
 	if $TalkingTime.is_stopped():
 		Sounds.stopnabovoice()
 		if textnumber == 2:
+			$Sprite2D.visible = true
 			$AnimatedSprite2D.animation = "eyesmall"
 			if Input.is_action_just_pressed("NEXT"):
+				$Sprite2D.frame = 1
 				Sounds.newdialogue()
 				$AnimatedSprite2D.animation = "talksmall"
 				$AnimationPlayer2.play("text2")
 				$TalkingTime.start()
 		if textnumber == 3:
+			$Sprite2D.frame = 0
 			$AnimatedSprite2D.animation = "eyesmall"
 			if Input.is_action_just_pressed("NEXT"):
+				$Sprite2D.frame = 1
 				Sounds.newdialogue()
 				$AnimatedSprite2D.animation = "talksmall"
 				$AnimationPlayer2.play("text3")
 				$TalkingTime.start()
 		if textnumber == 4:
+			$Sprite2D.frame = 0
 			$AnimatedSprite2D.animation = "eyesmall"
 			if mousePointing:
+				$Sprite2D.frame = 1
 				Sounds.newdialogue()
 				$AnimatedSprite2D.animation = "talkbig"
 				$AnimationPlayer2.play("text4")
 				$TalkingTime.start()
 		if textnumber == 5:
+			$Sprite2D.visible = false
 			$AnimatedSprite2D.animation = "eyebig"
 			if Input.is_action_just_pressed("NEXT"):
 				Sounds.newdialogue()

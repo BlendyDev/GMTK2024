@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cg154e3cwcjlr"]
+[gd_scene load_steps=42 format=3 uid="uid://cg154e3cwcjlr"]
 
 [ext_resource type="Texture2D" uid="uid://2cryhpbyyx5l" path="res://sprites/gusanodeprevado-Sheet.png" id="1_ojo15"]
 [ext_resource type="Script" path="res://scripts/nabo.gd" id="1_xx4vo"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://o7krashpq30x" path="res://sprites/nabo_pequeno_como_el_de_tato-Sheet.png" id="4_wi1s4"]
 [ext_resource type="Texture2D" uid="uid://4bgodo4d3j2s" path="res://sprites/globo.png" id="6_fqje7"]
 [ext_resource type="FontFile" uid="uid://cj2ccsjuqok0k" path="res://fonts/manaspc.ttf" id="7_8dw07"]
+[ext_resource type="Texture2D" uid="uid://dprknn6ey610d" path="res://sprites/presionae-Sheet.png" id="8_ca0t2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j253i"]
 size = Vector2(108, 69)
@@ -587,6 +588,15 @@ one_shot = true
 
 [node name="AnimationTime" type="Timer" parent="."]
 wait_time = 0.1
+
+[node name="KeyTime" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(145, -36)
+texture = ExtResource("8_ca0t2")
+hframes = 2
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
