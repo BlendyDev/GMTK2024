@@ -22,6 +22,12 @@ func tutorialmusic():
 func stoptutorialmusic():
 	$Music/TutorialMusic.stop()
 
+func winmusic():
+	$Music/WinMusic.play()
+func stopwinmusic():
+	$Music/WinMusic.stop()
+	
+	
 #SFX
 
 func steps():
