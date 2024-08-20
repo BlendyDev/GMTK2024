@@ -278,11 +278,13 @@ max_distance = 1e+06
 bus = &"Voices"
 
 [node name="TurtleVoice" type="AudioStreamPlayer2D" parent="Voices"]
+process_mode = 4
 stream = SubResource("AudioStreamRandomizer_a8rfd")
 panning_strength = 0.0
 bus = &"Voices"
 
 [node name="RamiroVoice" type="AudioStreamPlayer2D" parent="Voices"]
+process_mode = 4
 stream = SubResource("AudioStreamRandomizer_yqfjv")
 volume_db = -4.0
 max_distance = 1e+09
@@ -290,6 +292,7 @@ panning_strength = 0.0
 bus = &"Voices"
 
 [node name="RatVoice" type="AudioStreamPlayer2D" parent="Voices"]
+process_mode = 4
 stream = SubResource("AudioStreamRandomizer_t8m7s")
 volume_db = -4.0
 pitch_scale = 1.25
@@ -298,6 +301,7 @@ panning_strength = 0.0
 bus = &"Voices"
 
 [node name="NaboVoice" type="AudioStreamPlayer2D" parent="Voices"]
+process_mode = 4
 stream = SubResource("AudioStreamRandomizer_t8m7s")
 volume_db = -6.0
 max_distance = 1e+09

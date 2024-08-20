@@ -95,13 +95,11 @@ func sanitizePolygons(polygons):
 	var sanitizedPolygons := []
 	for polygon in polygons:
 		if polygon.size() < 3: 
-			print("wee woo")
 			continue
 		if Geometry2D.triangulate_polygon(polygon).is_empty():
 			print("Failed to triangulate polygon. Dumping polygon data")
 			for vert in polygon:
 				print ("Vert: " + Util.parseVector(vert))
-			print("Skipping...")
 			continue
 		sanitizedPolygons.append(polygon)
 	return sanitizedPolygons

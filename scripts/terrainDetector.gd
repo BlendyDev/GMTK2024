@@ -18,6 +18,6 @@ func areaShapeEntered(area_rid, area, area_shape_index, local_shape_index):
 		handleDeath()
 
 func handleDeath():
-	Global.hasdied = true
+	Global.hasDied = true
 	Sounds.deathsound()
 	player.resetLevel()

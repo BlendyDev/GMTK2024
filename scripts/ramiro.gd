@@ -45,7 +45,6 @@ func _on_body_entered(body: Node2D) -> void:
 	Sounds.newdialogue()
 	stoppedTalking = false
 	$AnimatedSprite2D.animation = "talk"
-	print ("jisjjsij")
 	$TextureRect.visible = true
 	$RichTextLabel.visible = true
 	$AnimationPlayer.play("fadein")

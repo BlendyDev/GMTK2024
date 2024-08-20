@@ -1,11 +1,13 @@
-[gd_scene load_steps=33 format=3 uid="uid://6guy5rxqs3n2"]
+[gd_scene load_steps=35 format=3 uid="uid://6guy5rxqs3n2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lbma7"]
 [ext_resource type="Texture2D" uid="uid://brcicxht2alae" path="res://sprites/player/idle.png" id="2_2amsf"]
 [ext_resource type="Texture2D" uid="uid://d2cad3qjvrqkc" path="res://sprites/player/walk.png" id="3_bnrw3"]
+[ext_resource type="PackedScene" uid="uid://s022xsof5kwr" path="res://scenes/win_animation.tscn" id="4_06kgn"]
 [ext_resource type="AudioStream" uid="uid://b0lcnku8y725o" path="res://sfx/steppin3.wav" id="4_fi0ek"]
 [ext_resource type="PackedScene" uid="uid://l2redlkqy0uh" path="res://scenes/dust.tscn" id="5_is107"]
 [ext_resource type="Script" path="res://scripts/terrainDetector.gd" id="6_j3yfp"]
+[ext_resource type="Texture2D" uid="uid://c7ycy1h5hjt4u" path="res://sprites/player/espaldaprota.png" id="8_u7qb1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0qbx4"]
 radius = 8.5
@@ -270,6 +272,14 @@ shape = SubResource("RectangleShape2D_6w6c7")
 libraries = {
 "": SubResource("AnimationLibrary_kbxdd")
 }
+
+[node name="WinAnimation" parent="." instance=ExtResource("4_06kgn")]
+position = Vector2(0, 26)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, 0)
+texture = ExtResource("8_u7qb1")
 
 [connection signal="timeout" from="JumpBuffer" to="." method="jumpBufferTimeout"]
 [connection signal="timeout" from="CoyoteTime" to="." method="coyoteTimeout"]

@@ -125,16 +125,10 @@ script = ExtResource("1_mlfyn")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j5bnl")
 animation = &"enter"
-frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_jalo6")
-
-[node name="EnterAnimationTime" type="Timer" parent="."]
-process_mode = 3
-wait_time = 2.75
-one_shot = true
 
 [node name="WinZone" type="Area2D" parent="."]
 
@@ -154,9 +148,13 @@ one_shot = true
 [node name="NextScreen" type="Timer" parent="."]
 one_shot = true
 
+[node name="EnterAnimationTime" type="Timer" parent="."]
+wait_time = 2.75
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
-[connection signal="timeout" from="EnterAnimationTime" to="." method="_on_enter_animation_time_timeout"]
 [connection signal="body_entered" from="WinZone" to="." method="_on_win_zone_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="animationFinished"]
 [connection signal="timeout" from="BlinkSound" to="." method="_on_blink_sound_timeout"]
 [connection signal="timeout" from="NextScreen" to="." method="_on_next_screen_timeout"]
+[connection signal="timeout" from="EnterAnimationTime" to="." method="_on_enter_animation_time_timeout"]

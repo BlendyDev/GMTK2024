@@ -26,38 +26,15 @@ var allowCutJump := true
 var queuedCutJump := false
 
 var allowMove := true
+var danceFinished := false
+var enteringDoor := false
 @onready var ogPos: Vector2 = self.global_position
 
 func _process(delta):
-	print (Global.puzzleWin)
+	pass
 
 func _physics_process(delta):
-	#if $DeathTimer.is_stopped():
-		#$AnimatedSprite2D2.visible = false
-	#if Global.hasdied:
-		#$AnimatedSprite2D.visible = false
-		#$AnimatedSprite2D2.animation = "die"		
-		#$AnimatedSprite2D2.visible = true
-		#$DeathTimer.start()
-	if Global.puzzleWin and !Global.haswon:
-		allowMove = false
-		if $WinTimer.is_stopped():
-			$WinTimer.start()
-		$WinAnimation/Sprite2D.visible = true
-		$AnimatedSprite2D.visible = false
-		$Sprite2D.visible = false
-	else:
-		$WinAnimation/Sprite2D.visible = false
-	if Global.canenter:
-		if Input.is_action_just_pressed("NEXT"):
-			allowMove = false
-			$AnimatedSprite2D.visible = false
-			$Sprite2D.visible = true
-			
-			Sounds.entersound()
-			var tween2 = get_tree().create_tween()
-			tween2.tween_property($Sprite2D, "modulate", Color(1, 1, 1, 0), 1)
-			
+	if (Input.is_action_just_pressed("L")): puzzleWin()
 	if Input.is_action_just_pressed("RESET"): resetLevel()
 	shifting = Input.is_action_pressed("SHIFT")
 	var direction := Input.get_axis("LEFT", "RIGHT")
@@ -86,6 +63,7 @@ func resetLevel():
 	lupa.scalePlayer = 1.0
 	lupa.scaleLevel = 1.0
 	camera.reset()
+
 func handleJump(delta, direction):
 	if Input.is_action_just_pressed("UP") and (is_on_floor() || coyote): jump()
 	if Input.is_action_pressed("UP") and jumpBuffered and is_on_floor(): jump()	
@@ -158,16 +136,32 @@ func jumpBufferTimeout():
 
 func jumpHeightTimeout():
 	allowCutJump = true 
-	
-
-
-
-
 
 func _on_win_timer_timeout():
-	Global.haswon = true
-	Global.puzzleWin = false
+	Global.hasWon = true
 	$WinAnimation.visible = false
 	$AnimatedSprite2D.visible = true
 	$Sprite2D.visible = false
 	allowMove = true
+
+func puzzleWin():
+	print("puzzleWin")
+	allowMove = false
+	$WinAnimation/Sprite2D.visible = true
+	$WinAnimation/AnimationPlayer.play("dance")
+	$AnimatedSprite2D.visible = false
+	$Sprite2D.visible = false
+func onDanceFinished():
+	danceFinished = true
+	allowMove = true
+	$AnimatedSprite2D.visible = true
+func enterDoor():
+	danceFinished = false
+	enteringDoor = false
+	allowMove = false
+	$AnimatedSprite2D.visible = false
+	$Sprite2D.visible = true
+	
+	Sounds.entersound()
+	var tween2 = get_tree().create_tween()
+	tween2.tween_property($Sprite2D, "modulate", Color(1, 1, 1, 0), 1)

@@ -3,8 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.puzzleWin = false
-	Global.haswon = false
+	Global.hasWon = false
 	$Transitions.play("fadein")
 
 

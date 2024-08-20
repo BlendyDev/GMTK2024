@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GMTK 2024"
-run/main_scene="res://scenes/level/test/test.tscn"
+run/main_scene="res://scenes/level/tutorial/tutorial.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -23,8 +23,8 @@ GemsUIs="*res://scenes/gemsUI.tscn"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
 [dotnet]
