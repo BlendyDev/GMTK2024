@@ -81,12 +81,9 @@ max_distance = 1e+09
 bus = &"Music"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-2, -28)
 texture = ExtResource("7_j1p8o")
 hframes = 23
 
-[node name="WinTimer" type="Timer" parent="."]
-wait_time = 5.25
-one_shot = true
-
-[connection signal="timeout" from="WinTimer" to="." method="_on_win_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
